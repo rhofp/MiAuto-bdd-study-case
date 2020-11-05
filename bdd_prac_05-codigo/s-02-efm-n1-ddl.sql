@@ -1,9 +1,6 @@
---@Author:	    Emanuel Flores Martínez
+--@Author:	    	Emanuel Flores Martínez
 --@Fecha creación:  05/11/2020
 --@Descripción:     Implementación de fragmentos en N1 - Código DDL
-
-prompt Conectandose a efmbd_s1 como usuario EDITORIAL_BDD
-connect editorial_bdd/editorial_bdd@efmbd_s1
 
 prompt Creando tablas para el sitio N1
 
