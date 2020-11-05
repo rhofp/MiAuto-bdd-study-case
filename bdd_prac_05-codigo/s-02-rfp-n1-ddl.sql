@@ -10,7 +10,7 @@ declare
   v_articulo_revista1 varchar2(30) := 'F_RFP_ARTICULO_REVISTA_1';
   v_suscriptor1 varchar2(30) := 'F_RFP_SUSCRIPTOR_1';
   v_suscriptor2 varchar2(30) := 'F_RFP_SUSCRIPTOR_2';
-  v_suscriptor4 varchar2(30) := 'F_RFP_SUSCRIPTOR_3';
+  v_suscriptor3 varchar2(30) := 'F_RFP_SUSCRIPTOR_3';
   v_articulo2 varchar2(30) := 'F_RFP_ARTICULO_2';
   v_pago_suscriptor1 varchar2(30) := 'F_RFP_PAGO_SUSCRIPTOR_1';
   v_pais1 varchar2(30) := 'F_RFP_PAIS_1';
@@ -22,7 +22,7 @@ begin
 
   -- Eliminando en caso de existir
   if v_count > 0 then
-    execute immediate 'drop table '||v_revista1;
+    execute immediate 'drop table '||v_revista1 ||' cascade constraints';
   end if;
 
   -- Comprobando la existencia de articulo_revista1
@@ -32,7 +32,7 @@ begin
 
   -- Eliminando en caso de existir
   if v_count > 0 then
-    execute immediate 'drop table '||v_articulo_revista1;
+    execute immediate 'drop table '||v_articulo_revista1 ||' cascade constraints';
   end if;
 
   -- Comprobando la existencia de suscriptor1
@@ -42,7 +42,7 @@ begin
 
   -- Eliminando en caso de existir
   if v_count > 0 then
-    execute immediate 'drop table '||v_suscriptor1;
+    execute immediate 'drop table '||v_suscriptor1 ||' cascade constraints';
   end if;
 
   -- Comprobando la existencia de suscriptor2
@@ -52,7 +52,7 @@ begin
 
   -- Eliminando en caso de existir
   if v_count > 0 then
-    execute immediate 'drop table '||v_suscriptor2;
+    execute immediate 'drop table '||v_suscriptor2 ||' cascade constraints';
   end if;
 
   -- Comprobando la existencia de suscriptor3
@@ -62,7 +62,7 @@ begin
 
   -- Eliminando en caso de existir
   if v_count > 0 then
-    execute immediate 'drop table '||v_suscriptor3;
+    execute immediate 'drop table '||v_suscriptor3 ||' cascade constraints';
   end if;
 
   -- Comprobando la existencia de articulo2
@@ -72,7 +72,7 @@ begin
 
   -- Eliminando en caso de existir
   if v_count > 0 then
-    execute immediate 'drop table '||v_articulo2;
+    execute immediate 'drop table '||v_articulo2 ||' cascade constraints';
   end if;
 
   -- Comprobando la existencia de pago_suscriptior1
@@ -82,7 +82,7 @@ begin
 
   -- Eliminando en caso de existir
   if v_count > 0 then
-    execute immediate 'drop table '||v_pago_suscriptor1;
+    execute immediate 'drop table '||v_pago_suscriptor1 ||' cascade constraints';
   end if;  
 
   -- Comprobando la existencia de pais1
@@ -92,7 +92,7 @@ begin
 
   -- Eliminando en caso de existir
   if v_count > 0 then
-    execute immediate 'drop table '||v_pais1;
+    execute immediate 'drop table '||v_pais1 ||' cascade constraints';
   end if;  
 
 end;
@@ -107,7 +107,6 @@ create table f_rfp_articulo_2(
     titulo         varchar2(40)      not null,
     resumen        varchar2(500)     not null,
     texto          varchar2(4000)    not null,
-    pdf            blob              not null,
     constraint f_rfp_articulo_2_pk primary key (articulo_id)
 );
 

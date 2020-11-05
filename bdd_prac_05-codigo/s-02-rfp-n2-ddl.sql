@@ -2,7 +2,7 @@
 --@Fecha creacion: 03 de noviembre de 2020
 --@Descripcion: Creacion de tablas para el fragmento n2
 
-prompt Creando tablas para el fragmento N1
+prompt Creando tablas para el fragmento N2
 
 declare
   v_count number;
@@ -20,7 +20,7 @@ begin
 
   -- Eliminando en caso de existir
   if v_count > 0 then
-    execute immediate 'drop table '||v_revista2;
+    execute immediate 'drop table '||v_revista2 ||' cascade constraints';
   end if;
 
   -- Comprobando la existencia de articulo_revista2
@@ -30,7 +30,7 @@ begin
 
   -- Eliminando en caso de existir
   if v_count > 0 then
-    execute immediate 'drop table '||v_articulo_revista2;
+    execute immediate 'drop table '||v_articulo_revista2 ||' cascade constraints';
   end if;
 
   -- Comprobando la existencia de suscriptor4
@@ -40,7 +40,7 @@ begin
 
   -- Eliminando en caso de existir
   if v_count > 0 then
-    execute immediate 'drop table '||v_suscriptor4;
+    execute immediate 'drop table '||v_suscriptor4 ||' cascade constraints';
   end if;
 
   -- Comprobando la existencia de articulo1
@@ -50,7 +50,7 @@ begin
 
   -- Eliminando en caso de existir
   if v_count > 0 then
-    execute immediate 'drop table '||v_articulo1;
+    execute immediate 'drop table '||v_articulo1 ||' cascade constraints';
   end if;
 
   -- Comprobando la existencia de pago_suscriptor2
@@ -60,7 +60,7 @@ begin
 
   -- Eliminando en caso de existir
   if v_count > 0 then
-    execute immediate 'drop table '||v_pago_suscriptor2;
+    execute immediate 'drop table '||v_pago_suscriptor2 ||' cascade constraints';
   end if;  
 
   -- Comprobando la existencia de pais2
@@ -70,7 +70,7 @@ begin
 
   -- Eliminando en caso de existir
   if v_count > 0 then
-    execute immediate 'drop table '||v_pais2;
+    execute immediate 'drop table '||v_pais2 ||' cascade constraints';
   end if;  
 
 end;
@@ -93,7 +93,7 @@ create table f_rfp_articulo_1(
 create table f_rfp_revista_2(
     revista_id             number(10, 0)    not null,
     folio                  varchar2(10)     not null,
-    revista_adiciona_id    number(10, 0),
+    revista_adicional_id    number(10, 0),
     titulo                 varchar2(40)     not null,
     fecha_publicacion      date             not null,
     constraint f_rfp_revista_2_pk primary key (revista_id)
