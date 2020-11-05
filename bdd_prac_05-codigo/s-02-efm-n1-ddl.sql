@@ -1,4 +1,4 @@
---@Author:	    	Emanuel Flores Martínez
+--@Author:	    Emanuel Flores Martínez
 --@Fecha creación:  05/11/2020
 --@Descripción:     Implementación de fragmentos en N1 - Código DDL
 
@@ -58,7 +58,7 @@ create table f_efm_revista_1 (
     folio                   varchar2(10)     not null,
     titulo                  varchar2(40)     not null,
     fecha_publicacion       date             not null,
-    revista_adicional_id    number(10, 0)    not null,
+    revista_adicional_id    number(10, 0),
     constraint f_efm_revista_1_pk primary key (revista_id)
 );
 
@@ -131,8 +131,8 @@ create table f_efm_articulo_revista_1 (
     articulo_revista_id    number(10, 0)    not null,
     fecha_aprobacion       date             not null,
     calificacion           number(3, 1)     not null,
-    revista_id             number(10, 0)    not null,
     articulo_id            number(10, 0)    not null,
+    revista_id             number(10, 0)    not null,
     constraint f_efm_articulo_revista_1_pk primary key (articulo_revista_id),
     constraint f_efm_articulo_revista_1_revista_id_fk foreign key (revista_id)
     references f_efm_revista_1 (revista_id),

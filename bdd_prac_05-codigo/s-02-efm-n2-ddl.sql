@@ -1,6 +1,6 @@
 --@Author:	    Emanuel Flores Martínez
 --@Fecha creación:  05/11/2020
---@Descripción:     Implementación de fragmentos en N2 - Código DDL
+--@Descripción:     Implementación de fragmentos en N1 - Código DDL
 
 prompt Creando tablas para el sitio N2
 
