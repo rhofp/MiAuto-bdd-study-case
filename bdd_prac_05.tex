@@ -60,12 +60,15 @@
 \newcommand{\grupo}{1}
 \newcommand{\semestre}{2021-1}
 
-\newcommand{\alumno}{Francisco Pablo \textsc{Rodrigo}}
+\newcommand{\alumno}{
+    Francisco Pablo \textsc{Rodrigo}  \\ 
+    Flores Martinez \textsc{Emanuel}   
+}
 
 \newcommand{\actividad}{Práctica 05}
 \newcommand{\titulo}{Implementación del esquema de fragmentación}
 
-\newcommand{\fechaEntrega}{noviembre de 2020}
+\newcommand{\fechaEntrega}{6 noviembre de 2020}
 
 %%%%%%%%%%%%%%%%%%%% ENCABEZADO %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pagestyle{fancy}
@@ -110,7 +113,23 @@
 
     \vspace{3.3cm}
 
-    \large{\textbf{Alumno:} \alumno} \\[1.5cm]
+    % \large{\textbf{Alumno:} \alumno} \\[1.5cm]
+    \large{
+        \begin{itemize}[
+            noitemsep,
+            % topsep=0pt,
+            % parsep=0pt,
+            % partopsep=0pt,
+            % labelwidth=5cm,
+            align=left,
+            % itemindent=2cm
+        ]
+            \item [\textbf{Alumno(s):}] 
+            \begin{flushright}
+                \alumno
+            \end{flushright}
+        \end{itemize}
+    } \vspace{1.5cm}
 
     \begin{flushright}
         \fechaEntrega%
@@ -122,6 +141,21 @@
 
 \section*{Introducción}
 % TODO:- Hacer introducción en tiempo futuro
+En está práctica realizaremos nuestra primera implementación de un esquema
+de fragmentación que se distribuye en dos sitios, N1 y N2. Para emular estos
+dos sitios se ha decidido utilizar la arquitecura Multitenant que a grandes
+rasgos, funciona gracias a las \textit{PDBs} (Pluggable Databases). Es decir,
+una instancia se puede conectar a múltiples bases de datos que pueden ser
+conectadas (plug) o desconectadas según nuestras necesidades.\\ 
+
+Por otra parte, cabe destacar que se implementará la fragmentación con un
+nivel de transparencia local, por lo que es deber del programador asegurarse
+de que los registros a ser insertados se encuentren en el Nodo y el fragmento
+correcto. De otra manera, se caerá en un estado de inconsistencia que suele
+ser díficil de reparar.\\
+
+Por último, para esta práctica se requieren conocimientos sólidos de diseño 
+de base de datos, SQL y un poco de administración de base de datos.
 
 \section*{Objetivos}
 Implementar el esquema de fragmentación realizado en la práctica anterior 
@@ -130,10 +164,11 @@ empleando las PDBs creadas en la práctica 3.
 \section*{C1. Código y salida del script 
     \texttt{s-04-<iniciales>-consulta-fragmentos.sql}}
 
-% Codigo
 \lstinputlisting[language=SQL]
 {bdd_prac_05-codigo/s-04-rfp-consulta-fragmentos.sql}
 
+\newpage
+\textbf{Salida del script anterior}\\
 \includegraphics[width=0.8\linewidth]{bdd_prac05-c1-fragmentos}
 
 \section*{C2. Código y salida del script 
@@ -141,25 +176,26 @@ empleando las PDBs creadas en la práctica 3.
 \texttt{s-05-<iniciales>-consulta-restricciones.sql}}
 
 \textbf{Restricciones main}
-% Codigo
+
 \lstinputlisting[language=SQL]
 {bdd_prac_05-codigo/s-05-rfp-consulta-restricciones-main.sql}
 
 \textbf{Restricciones}
 
-% Codigo
 \lstinputlisting[language=SQL]
 {bdd_prac_05-codigo/s-05-rfp-consulta-restricciones.sql}
 
+\textbf{Salida del archivo main del script anterior}\\
 \includegraphics[width=0.8\linewidth]{bdd_prac05-c2-restricciones}
 
 \section*{C3. Código y salida del script 
 \texttt{s-07-<iniciales>-consultas.sql}}
 
-% Codigo
 \lstinputlisting[language=SQL]
 {bdd_prac_05-codigo/s-07-rfp-consulta-datos.sql}
 
+\newpage
+\textbf{Salida del script anterior}\\
 \includegraphics[width=\linewidth]{bdd_prac05-c3-consulta-datos}
 
 \section*{C4. Salida de ejecución del script de validación 
