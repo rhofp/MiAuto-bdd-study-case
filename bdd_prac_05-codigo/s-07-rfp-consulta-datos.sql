@@ -12,7 +12,6 @@ select ( select count(*) from F_RFP_PAIS_1 ) pais_1,
   ( select count(*) from F_RFP_SUSCRIPTOR_2) suscriptor_2, 
   ( select count(*) from F_RFP_SUSCRIPTOR_3) suscriptor_3, 
   ( select count(*) from F_RFP_ARTICULO_2) articulo_2,
-  ( select count(*) from F_RFP_ARTICULO_REVISTA_1) articulo_1,
   ( select count(*) from F_RFP_REVISTA_1) revista_1, 
   ( select count(*) from F_RFP_ARTICULO_REVISTA_1) articulo_revista_1, 
   ( select count(*) from F_RFP_PAGO_SUSCRIPTOR_1 ) pago_suscriptor_1
