@@ -1,6 +1,6 @@
---@Author:	    Emanuel Flores Martínez
---@Fecha creación:  05/11/2020
---@Descripción:     Consulta de fragmentos creados en pc-efm
+--@Author:	    Emanuel Flores Martinez
+--@Fecha creacion:  05/11/2020
+--@Descripcion:     Consulta de fragmentos creados en pc-efm
 
 prompt Conectando a S1 - efmbd_s1
 connect editorial_bdd/editorial_bdd@efmbd_s1
