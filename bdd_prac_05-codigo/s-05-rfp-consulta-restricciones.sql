@@ -1,5 +1,5 @@
 --@Autor: Rodrigo Francisco Pablo
---@Fecha creacion: 03/11/20202
+--@Fecha creacion: 03/11/2020
 --@Descripcion: Consulta de restricciones de referencia en rfp-pc
 
 Prompt mostrando lista de restricciones de referencia 
@@ -15,10 +15,10 @@ set linesize 200
 -- Tipo de restriccion
 
 select h.table_name tabla_hija, 
-h.r_constraint_name nombre_restriccion,
-p.table_name tabla_padre
+  h.r_constraint_name nombre_restriccion,
+  p.table_name tabla_padre,
+  h.constraint_type tipo_restriccion
 from user_constraints h
 join user_constraints p
 on h.r_constraint_name = p.constraint_name
-where h.constraint_type = 'R' 
-and h.r_constraint_name is not null;
+where h.constraint_type = 'R';
