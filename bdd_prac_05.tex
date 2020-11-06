@@ -180,13 +180,20 @@ empleando las PDBs creadas en la práctica 3.
 \lstinputlisting[language=SQL]
 {bdd_prac_05-codigo/s-05-rfp-consulta-restricciones-main.sql}
 
+\lstinputlisting[language=SQL]
+{bdd_prac_05-codigo/s-05-efm-consulta-restricciones-main.sql}
+
 \textbf{Restricciones}
 
 \lstinputlisting[language=SQL]
 {bdd_prac_05-codigo/s-05-rfp-consulta-restricciones.sql}
 
+\lstinputlisting[language=SQL]
+{bdd_prac_05-codigo/s-05-efm-consulta-restricciones.sql}
+
 \textbf{Salida del archivo main del script anterior}\\
 \includegraphics[width=0.8\linewidth]{bdd_prac05-c2-restricciones}
+\includegraphics[width=0.8\linewidth]{bdd-p5-efm-c2}
 
 \section*{C3. Código y salida del script 
 \texttt{s-07-<iniciales>-consultas.sql}}
@@ -204,12 +211,17 @@ empleando las PDBs creadas en la práctica 3.
 \textbf{Salida de Francisco Pablo Rodrigo}\\
 \includegraphics[width=\linewidth]{bdd_prac05-validador-rodrigo}
 
-% \textbf{Salida de Francisco Martinez Emanuel}\\
-% \includegraphics[width=\linewidth]{bdd_prac05-validador-emanuel}
+\textbf{Salida de Flores Martínez Emanuel}\\
+\includegraphics[width=\linewidth]{bdd_prac05-validador-emanuel}
 
 \section*{Comentarios y conclusiones}
 
 % TODO:- Agregar comentarios
+Esta práctica fue como un repaso de lo que se vió en Bases de Datos en los temas de SQL, a que durante el desarrolló de está práctica se utilizó DCL para la creación de usuarios, DDL para la creación de los objetos en los PDB, DML para la inserción de los datos, y DQL para consultar la configuración de las PDB y de los datos insertados.
+
+También se utilizó PL/SQL para realizar algunos procedimientos que fueron útiles para prevenir algunos errores al momento de ejecutar los scripts y para que el desarrollo fuera más dinámico. 
+
+Esta práctica fue algo pesada, ya que al realizar las inserciones debiamos asegurarnos de que estuvieramos insertando los datos en el sitio correcto y en la tabla correcta, además de que la creación de los objetos y sus constraints respectivos fue algo tardado.
 
 \renewcommand\refname{Bibliografía}
 \begin{thebibliography}{99}
@@ -217,6 +229,8 @@ empleando las PDBs creadas en la práctica 3.
         \texttt{https://docs.oracle.com/en/database/oracle/\\oracle-database/%
         index.html}
     %  TODO:- Add more references
+    \bibitem{oracledb} Oracle Database. \textit{Database PL/SQL Language Reference} en 
+        \texttt{https://docs.oracle.com/en/database/oracle/oracle-database/12.2/lnpls/database-pl-sql-language-reference.pdf}
 \end{thebibliography}
 
 \end{document}
