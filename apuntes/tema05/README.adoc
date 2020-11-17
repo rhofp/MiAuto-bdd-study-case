@@ -1,0 +1,133 @@
+= Tema 5
+Creado por Rodrigo Francisco <rhodfra@gmail.com>
+Version 1.0, 10.11.2020
+:description: Semana 08 del curso de CCNA
+:keywords: cnna, switching, stp, spanning tree protocol  
+:sectnums: 
+// Configuracion de la tabla de contenidos
+:toc: 
+:toc-placement!:
+:toclevels: 4                                          
+:toc-title: Contenido
+
+// Ruta base de las imagenes
+:imagesdir: ./README.assets/ 
+
+// Resaltar sintaxis
+:source-highlighter: pygments
+
+// Iconos para entorno local
+ifndef::env-github[:icons: font]
+
+// Iconos para entorno github
+ifdef::env-github[]
+:caution-caption: :fire:
+:important-caption: :exclamation:
+:note-caption: :paperclip:
+:tip-caption: :bulb:
+:warning-caption: :warning:
+endif::[]
+
+Optimización de Consultas Distribuidas
+
+toc::[]
+
+== Características del optimizador centralizado
+
+=== Estimador
+
+* Si no hay estadísticas, puede usar
+** Histogramas
+
+=== Generador del plan de ejecución
+
+Las operaciones JOIN son de las más costosas en un plan de ejecución, sobre todo donde hay múltiples tablas.
+
+* Puede ser más eficiente una combinación de tablas que otra
+* Del lado de los ususario no importa lo siguiente
+
+[source,sql]
+----
+-- No importa la conmutatividad
+a join b join c 
+b join a join c
+
+-- Lo siguiente no afecta el desempeño
+a join b
+-- Por medio de la sintaxis estandar
+on a.id = b.id
+-- Por medio de la sintaxis anterior
+where a.id = b.id
+----
+
+Otra fuente de datos del usuario son los *índices*, por ejemplo:
+
+`select cliente_id from cliente`
+
+Esta consulta utiliza únicamente los índices. No necesitamos tocar 
+la tabla.
+
+Lo anterior se mejor porque de otra manera tendríamos que cargar toda
+la tabla a memoria.
+
+Vamos a tener 2 métodos de acceso a datos (Access Path)
+
+* A la tablas
+* A la índices
+
+Para el curso y con el manejador Oracle solo utilizaremos
+
+* Tablas
+* índices B-Tree
+
+//-
+image::indices.png[]
+
+Métodos para ejecutar operaciones JOIN
+
+* Nested Loop Joins
+* Has Joins
+* Sort merge Joins
+* Cartesian Joins
+
+El tipo de Join puede influenciar al optimizador en especial para
+determinar el orden correcto  de ejecución.
+
+== Optimización de consultas centralizados - Oracle
+
+Bloque SQL ::
+Cada instrucción select representa un bloque
+
+La selección del plan de ejecución se ve afectado por: 
+
+* La forma de escribir la consulta
+* El tamaño de conjunto de datos
+** Si no tiene índices el desempeño baja
+** Si tenemos una tabla _gigantesca_, ¿cómo le ayudamos a mejorar el
+desempeño?
++
+image:optim.png[]
+
+//-
+
+[NOTE]
+====
+Terminología útil
+
+image::notatns.png[]
+====
+
+=== Plan de ejecución
+
+Me dice el impacto que tendría ejecutar cierta sentencia. Se ve más
+o menos así
+
+image::plan.png[]
+
+Id:: El identificador de cada operación
+Operacion:: Entran en juego los métodos de acceso
+Name:: Fuente de datos (tabla o índice)
+Rows:: Número de registros estimado a obtener
+Bytes:: Memoria que vamos a utilizar
+Cost:: Costo de la consulta
+Time:: Tiempo de procesamiento
