@@ -41,7 +41,8 @@ toc::[]
 
 === Generador del plan de ejecución
 
-Las operaciones JOIN son de las más costosas en un plan de ejecución, sobre todo donde hay múltiples tablas.
+Las operaciones JOIN son de las más costosas en un plan de ejecución, sobre todo 
+donde hay múltiples tablas.
 
 * Puede ser más eficiente una combinación de tablas que otra
 * Del lado de los ususario no importa lo siguiente
@@ -131,3 +132,138 @@ Rows:: Número de registros estimado a obtener
 Bytes:: Memoria que vamos a utilizar
 Cost:: Costo de la consulta
 Time:: Tiempo de procesamiento
+
+Las estadísticas nos dicen se debemos usar la tabla o le índice. Si hay pocos
+registros entonces le convendrá cargar toda la tabla a memoria.
+_Se debe tener las estadísticas actualizadas_, en caso de ORACLE, las 
+estádisticas se recolectan en automático.
+
+En proceso no es 100% confiable por ello podemos hacerlo de forma manual
+
+[source,sql]
+----
+begin
+  dbms_status.gather_schema_stats (
+    ownname => 'CONTROL_MEDICO', #<1> 
+    degree => 2 #<2> 
+  );
+end;
+/
+----
+<1> Todas las tablas que estan en el esquema
+<2> 2 hilos ejecucion
+
+Hay dos formas para obtener un plan de ejecución. Suponer la siguiente consulta
+
+[source,sql]
+----
+explain plan 
+set statement_id = 's1' for #<1>
+select m.nombre, c.fecha_cita
+from medico m, cita c
+where m.medioc_id = c.medico_id
+and consultorio='C-593'
+----
+<1> Es opcional
+
+Los planes de ejecución se pone en PLAIN TABLE
+
+Para mostrar el plan de ejecución
+
+[source,sql]
+----
+set linesize 100
+select plan_table_output
+from table(dbms_xplan.display('PLAN_TABLE','s1'm'TYPICAL)); #<1>
+----
+<1> De typical indica el nivel de explicacion que se mostrará
+
+Para aplicar un NESTED LOOP se requerieren 2 operaciones.
+Es uno de los parametros de otro NESTED LOOP (el mas externo), sus parámetros
+son NESTED LOOP (interno) y TABLE ACCESS.
+El NESTED LOOP (externo) será ocupado por el SELECT
+
+Hay métodos de acceso a tablas y a índices
+
+.Métodos de acceso, algunos ejemplos
+* Escanear toda la tabla
+* Escaneo por _row_id_
+
+[NOTE]
+====
+El *row_id* me dice la localización precisa en disca de una dato
+====
+
+
+El manejador internamente puede hacer join entre índices
+
+Organización de tablas
+
+*Heap Organized table (Default)* ::
+No hay orden por defecto la hora de guardar la tabla
+*Index Organized table* ::
+Los registros se orden con respecto a su PK
+
+
+==== Acceso a tablas
+
+.Hay dos métodos de acceso
+* Table Access Full 
++
+image::accessfull.png[]
+Gastaría mucha memoria y puede que mi tabla no quepa en
+el buffer.
++ 
+*OJO*: Los indices no se llevan bien con los valores nulos
++ 
+image::findex.png[] 
+El índice no se usará. +
+El índice no se usará si se quiere cargar toda la tabla.
+En tablas pequeñas se hará un _table access full_
+** Si la tabla tiene menos de 128 bloques.
+* Podemos forzar al optimizados a hacer un table access full
+** Se realiza por medio del _hint_, es una pista u orden.
+** En términos de sintáxis se ve como un comerario
++
+[source,sql]
+----
+/*CONSULTA*/
+----
+
+[WARNING]
+====
+Dada una consulta debemos saber que método de acceso se ocupará
+====
+
+*Ejemplo*
+
+[source,sql]
+----
+explain plan for
+select * from paciente;
+
+select plan_table_output
+from table (dbms_xplan.display); # <1> <2>
+----
+<1> Por default utiliza plan_table
+<2> Va a traer la última instruccion que haya solicitado el plan
+
+.Explicación
+* Se lanza un table acces full
+** Debido a que se requieren todos los atributos
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
