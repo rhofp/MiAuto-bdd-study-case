@@ -212,7 +212,7 @@ Los registros se orden con respecto a su PK
 +
 image::accessfull.png[]
 Gastaría mucha memoria y puede que mi tabla no quepa en
-el buffer.
+el buffer *(Se deben leer todos los bloques de datos)*
 + 
 *OJO*: Los indices no se llevan bien con los valores nulos
 + 
@@ -252,13 +252,164 @@ from table (dbms_xplan.display); # <1> <2>
 * Se lanza un table acces full
 ** Debido a que se requieren todos los atributos
 
+===== Table Access by row id
+
+Los datos de entrada son los _row id_
+
+Algoritmo::
+    . Se consultan los índices para obtener los _row id_ 
+    . y posteriormente se usa el _row id_ para ir al registro.
+    
+====
+*Ejemplo 1:*
+
+[source,sql]
+----
+explain plan for
+select nombre
+from paciente
+where paciente_id = 3;      // <1>
+
+select plan_table_output
+from table(dbms_xplan.display);
+----
+<1> Se usará el indice y nos dirá el _row id_ de este registro
+
+//-
+
+. Se recupera el _row id_
+. Con el _row id_ voy al bloque de datos para traer el registro.
+
+====
+
+===== Sample table scan
+
+Se usa más de manera interna que a nivel de usuario final.
+
+Se obtiene una muestra de un tabla, sin cargar toda la tabla.
+
+* La muestra deseada se expresa en porcentaje
+** El porcentaje se aplica a los bloques.
+
+La sintaxis para provocar un sample table scan es:
+
+[source,sql]
+----
+explain plan for
+select *
+from cita sample block(10);
+select plan_table_output
+from table(dbms_xplan.display);
+----
+
+===== In memory table scan
+
+Obtener registros de una tabla almacenados en memoria en forma
+columar: [underline]#IM Column Store#
+
+image::inmemory.png[]
+
+==== B-Tree Index Access Paths.
+
+===== Index Unique scan.
+
+* A lo más se regresa un id
+* Si se aplica depende de la sentencia
+** Generalmente cuando tenemos el signo de igualdad
+
+====
+¿Por qué no se usa el indice?
+
+[source,]
+----
+explain plan for
+select email
+from paciente;
+select plan_table_output
+from table(dbms_xplan.display);
+----
 
 
+Por que el email es nulo. Los índices B-Tree no permite nulos.
+Por lo tanto si se usa el índice se traerían un número 
+erróneo de datos
 
+Para que use el email
+====
 
+===== Index Range scan
 
+Ejemplo
 
+[source,]
+----
+explain plan for
+select email
+from paciente
+where email like 'bob@%'
+order by email desc;
+select plan_table_output
+from table(dbms_xplan.display);
+----
 
+Ejemplo 2: 
+
+¿Por qué no se usa el índice?
+[source,sql]
+----
+create index paciente_nombre_idx
+on paciente(nombre);
+explain plan for
+select nombre
+from paciente
+order by paciente_id desc;
+select plan_table_output
+from table(dbms_xplan.display);
+----
+
+El índice nombre no es tan compatible con lo que queremos obtener (ver el caso del ordenamiento)
+
+===== Index Full Scan
+
+* Hace un escaneo completo de toda la columna indexada. 
+Trayendo todos los _row id_
+
+* Todas las columnas solicitas deben estar indexadas.
+* Al menos una de las columnas esta decladad como 
+[underline]#not null#
+
+Ejemplo
+
+[source,]
+----
+explain plan for
+select nombre
+from paciente
+order by nombre;
+select plan_table_output
+from table(dbms_xplan.display);
+----
+
+===== Index Fast full scan
+
+Los indices se almancenan como las tablas (en bloques).
+
+Para ese tipo de indices se cargan los bloques de datos que contienen al indice en memoria.
+
+Ejemplo 
+
+[source,]
+----
+explain plan for
+select email
+from paciente
+where email is not null;
+select plan_table_output
+from table(dbms_xplan.display);
+----
+
+No tiene la sentencia `order by` por lo tanto no se requiere
+ordenamiento. No es necesario contruir el árbol.
 
 
 
