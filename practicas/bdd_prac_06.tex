@@ -11,6 +11,7 @@
 \usepackage{amssymb}
 \usepackage{listings}
 \usepackage{xcolor}
+\usepackage[table,xcdraw]{xcolor}
 % \usepackage{hyperref}
 % \usepackage{float}
 % \usepackage{tabu}
@@ -153,12 +154,24 @@ comunicación bidireccional.
 \section*{C1. Diagrama Jerárquico }
 
 % TODO:- Insertar imagen, una por equipo
-%\lstinputlisting[language=SQL]
-%{bdd_prac_05-codigo/s-04-rfp-consulta-fragmentos.sql}
+\includegraphics[width=\linewidth]{diagrama.png}
 
 \section*{C2. Investigación modo dedicado/ modo compartido }
 
 % TODO:- Agregar investigacion
+\begin{table}[]
+
+    \begin{tabular}{|c|c|l|l|}
+
+    \hline
+    
+    \rowcolor[HTML]{EFEFEF} 
+    Configuración de una BD Oracle & Descripción & \multicolumn{1}{c|}{\cellcolor[HTML]{EFEFEF}Ventajas} & \multicolumn{1}{c|}{\cellcolor[HTML]{EFEFEF}Desventajas} \\ \hline
+    Modo Dedicado & Un proceso de servidor dedicado solo da servicio a un proceso de usuario. & \begin{tabular}[c]{@{}l@{}}Permite enviar trabajo por lotes.\\ Permite utilizar Recovery Manager (RMAN).\end{tabular} & Por cada proceso de usuario debe haber un proceso de servidor, utilizando más memoria. \\ \hline
+    Modo Compartido & Un proceso de servidor compartido puede dar servicio a múltiples procesos de usuario. & \begin{tabular}[c]{@{}l@{}}Mejor gestión de recursos del sistema\\ \\ Soporte a mayor número de usuarios\end{tabular} & Requiere Oracle Net Services. \\ \hline
+    \end{tabular}
+
+\end{table}
 
 \section*{C3. Código únicamente para \texttt{suscriptor} y ejecución del 
   script \texttt{s-03-<SID>-consultas.sql}}
