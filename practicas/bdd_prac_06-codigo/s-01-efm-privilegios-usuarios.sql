@@ -1,4 +1,4 @@
---@Author:	        Emanuel Flores Martínez
+--@Author:	    Emanuel Flores Martínez
 --@Fecha creación:  05/12/2020
 --@Descripción:     Privilegios de usuario 
 
