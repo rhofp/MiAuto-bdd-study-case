@@ -411,10 +411,141 @@ from table(dbms_xplan.display);
 No tiene la sentencia `order by` por lo tanto no se requiere
 ordenamiento. No es necesario contruir el árbol.
 
+===== Index Skip Scan
+
+Pensemos en lo siguiente
+
+image::indices2.png[]
+
+
+En la segunda consulta no se va utilizar el indice que creo
+porque al crear el índice si importa el orden.
+
+* Atributos que tenga baja variedad debe ir al final.
+* Debo incluir la columna uqe siempre se va a incluir en algún
+predicado.
+* Los atributos que sean unique debe ir al inicio. 
+
+Ahora sí, hablemos sobre el método de acceso, _index skip
+scan_ se utilizará sí
+
+* La primera columna tiene muy pocos valores diferentes.
+* La segunda columna tiene una gran cantidad de valores 
+distintos.
+* La consulta no incluye en el predicado a la primera columna.
+
+Es decir quedaría algo así
+
+image::indice-mal.png[]
+
+Si se piden los correos no se utilizará el índice, 
+_¿Qué podemos hacer?_
+
+Suponer que se tiene lo siguiente
+
+[source,sql]
+----
+create index unique paciente_gen_email_uk(genero, email)
+
+select * from
+paciente where email = 'yang@...';
 
 
 
+// El manejador lo que hace para solucionar lo anterior 
+es:
 
+( select *
+    from
+    paciente
+    where genero = 'F'
+    and
+    email = 'abbey@company.com' )
+union all
+    ( select *
+    from
+    paciente
+    where genero = 'M'
+    and
+    email = 'abbey@company.com' )
+----
 
+[NOTE]
+====
+Si son demasiados valores distintos el manejador se irá por
+el *full access table*
+====
 
+[NOTE]
+====
+Los _row id_ obtenidos se puede procesar en batch, por lote,
+porque el manejador va a indentificar los bloques donde 
+se encuentran los _row ids_ y se va a traer todo el bloque.
+En lugar de ir uno por uno.
 
+image::batch.png[]
+====
+
+===== Index Join scan
+
+Aplica un Join entre indices.
+
+Existen consultas que involucran 2 atributos indexados por
+separado. Por ejemplo
+
+[source,sql]
+----
+create index paciente_nombre_idx
+on paciente(nombre);
+create index paciente_ap_paterno_idx
+on paciente(ap_paterno);
+explain plan for
+select nombre,ap_paterno
+from paciente
+where nombre like 'A%';
+select plan_table_output
+from table(dbms_xplan.display);
+----
+
+.Plan de ejecución
+[width="100%",options="header,footer"]
+|====================
+| Método de acceso | Fuente de datos  
+| * Hash Join        | 
+| **  Index Full Scan  | paciente_ap_paterno_idx
+| **  Index Range Scan |  paciente_nombre_idx 
+|====================
+
+El contenido _index range scan_  hasta ahora es 
+
+image::index-join.png[]
+
+Observar lo que tenemos
+
+image::index-join2.png[]
+
+[source,sql]
+----
+select q2.nombre, q1.ap_pat
+from q1, q2
+where q1. row_id = q2.row_id
+----
+
+== Joins
+//TODO:- Agregar driven table
+
+=== Nested Loop
+
+* Tablas de tamaño mediado
+* Se piensa de manera similar a un for anidado
+
+=== Hash Join
+
+._Algoritmo_
+* buscar la tabla con la menor cardinalidad.
+* EN el plan de ejecución se utiliza la primera tabla del 
+plan de ejecución para construir la tabla hash
+
+=== Sort Merge join
+
+* Las columnas que nos sirven para el join debe estar ordenadas
