@@ -11,7 +11,6 @@
 \usepackage{amssymb}
 \usepackage{listings}
 \usepackage{xcolor}
-\usepackage[table,xcdraw]{xcolor}
 % \usepackage{hyperref}
 % \usepackage{float}
 % \usepackage{tabu}
@@ -69,7 +68,9 @@
 \newcommand{\actividad}{Práctica 06}
 \newcommand{\titulo}{Transparencia de distribución - Mapeos locales}
 
-\newcommand{\fechaEntrega}{30 noviembre de 2020}
+\newcommand{\fechaEntrega}{6 diciembre de 2020}
+
+\newcommand{\codedir}{bdd_prac_06-codigo}
 
 %%%%%%%%%%%%%%%%%%%% ENCABEZADO %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \pagestyle{fancy}
@@ -141,7 +142,21 @@
 %%%%%%%%%%%%%%%%%%% CONTENIDO %%%%%%%%%%%%%%%%%%%%%%%%
 
 \section*{Introducción}
-% TODO:- Hacer introducción en tiempo futuro
+
+En esta práctica se continuará con el caso de estudio que involucra 
+suscriptores, revistas, articulos y pagos. Una vez que se tiene implementado
+el esquema de fragmentación en cada PDB se debe empezar a implementar los
+niveles de transparencia de distribución. A manera de recordatorio y en orden 
+jerárquico se tiene: transparencia de fragmentación, transparencia de 
+localización y transparencia de mapeos locales. \\
+
+En esta práctica se implementarán mapeos locales dado que son los más básicos.
+Para realizar dicha implementación se hará uso del concepto de ligas. Las
+ligas son objetos que se guardan en la base de datos y que nos ayudan a 
+realizar conexiones remotas sin la necesidad de utilizar la sentencia connect.
+Es importante mencionar que para utilizar este nivel de transparencia es 
+absolutamente necesario tener el listener en estado \textit{READY} ya que 
+utilizaremos los servicios previamente configurados para formar la liga.
 
 \section*{Objetivos}
 
@@ -153,44 +168,54 @@ comunicación bidireccional.
 
 \section*{C1. Diagrama Jerárquico }
 
-% TODO:- Insertar imagen, una por equipo
 \includegraphics[width=\linewidth]{diagrama.png}
 
 \section*{C2. Investigación modo dedicado/ modo compartido }
 
 % TODO:- Agregar investigacion
-\begin{table}[]
-
-    \begin{tabular}{|c|c|l|l|}
-
-    \hline
-    
-    \rowcolor[HTML]{EFEFEF} 
-    Configuración de una BD Oracle & Descripción & \multicolumn{1}{c|}{\cellcolor[HTML]{EFEFEF}Ventajas} & \multicolumn{1}{c|}{\cellcolor[HTML]{EFEFEF}Desventajas} \\ \hline
-    Modo Dedicado & Un proceso de servidor dedicado solo da servicio a un proceso de usuario. & \begin{tabular}[c]{@{}l@{}}Permite enviar trabajo por lotes.\\ Permite utilizar Recovery Manager (RMAN).\end{tabular} & Por cada proceso de usuario debe haber un proceso de servidor, utilizando más memoria. \\ \hline
-    Modo Compartido & Un proceso de servidor compartido puede dar servicio a múltiples procesos de usuario. & \begin{tabular}[c]{@{}l@{}}Mejor gestión de recursos del sistema\\ \\ Soporte a mayor número de usuarios\end{tabular} & Requiere Oracle Net Services. \\ \hline
-    \end{tabular}
-
-\end{table}
 
 \section*{C3. Código únicamente para \texttt{suscriptor} y ejecución del 
   script \texttt{s-03-<SID>-consultas.sql}}
 
-%\lstinputlisting[language=SQL]
-%{bdd_prac_05-codigo/s-07-rfp-consulta-datos.sql}
+\lstinputlisting[language=SQL,firstline=35,lastline=49]
+  {\codedir/s-03-rfpbd_s2-consultas.sql}
 
 %\textbf{Salida del script anterior}\\
-%\includegraphics[width=\linewidth]{bdd_prac05-c3-consulta-datos}
+  \includegraphics[width=0.8\linewidth]{rfp_c3}
 
 \section*{C4. Actualización de fragmentos de código para el procedimiento 
   \texttt{guarda\_blob\_en\_archivo}}
 
- \section*{Salida de ejecución del script de validación 
+  \lstinputlisting[language=SQL,firstline=66,lastline=91]
+  {\codedir/s-00-guarda-blob-en-archivo.sql}
+
+\section*{C5. Salida de ejecución del script de validación 
   \texttt{s-05-validacion-main.sql}}
-  
+
+  \subsection*{Salida de Francisco Pablo Rodrigo}
+
+  \lstinputlisting[firstline=158]{bdd_prac_06-codigo/validador.txt}
+
 \section*{Comentarios y conclusiones}
 
-% TODO:- Agregar comentarios
+En esta pŕactica aprendimos a trabajar con objetos binarios en nuestra base
+de datos pero sobretodo dimos un gran repaso sobre las buenas prácticas
+que debemos seguir a la hora de programar. De lo anterior podemos destacar la
+importancia de comentar nuestro código, trabajar con sentencias preparadas
+para evitar inyecciones SQL y por último, debemos sanitizar los parámetros
+por medio de las funciones que normalmente ofrece cualquier lenguaje de
+programación.\\
+
+Por otra parte, con respecto de la materia, aprendimos como realizar el
+nivel de transparencia de mapeos locales, el cual es el nivel más bajo de 
+transparencia y tiene la desventaja de que el programador se encarga de todo:
+realizar la reconstrucción de tablas en caso de que se pidan todos los 
+datos de una determinada tabla, también es responsabilidad del programador 
+cuidar la integridad al momento de realizar los inserts.\\
+
+La práctica fue interesante, sin embargo, esperaba escribir el código de los
+requerimientos planteados en los bullets, empero completar códgio nos ahorro
+mucho tiempo.
 
 \renewcommand\refname{Bibliografía}
 \begin{thebibliography}{99}
@@ -201,7 +226,6 @@ comunicación bidireccional.
         Reference} en 
         \texttt{https://docs.oracle.com/en/database/oracle/\\
         oracle-database/12.2/lnpls/database-pl-sql-language-reference.pdf}
-    %  TODO:- Add more references
 \end{thebibliography}
 
 \end{document}
