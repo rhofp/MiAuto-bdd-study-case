@@ -172,7 +172,54 @@ comunicación bidireccional.
 
 \section*{C2. Investigación modo dedicado/ modo compartido }
 
-% TODO:- Agregar investigacion
+\subsection*{Configuración de una BD Oracle}
+
+\subsubsection*{Modo dedicado}
+
+\textbf{Descripción:} 
+Se crea un proceso de servidor por cada usuario conectado a la base de datos. 
+La información específica de cada proceso de servidor se guarda en la UGA 
+(área dentro de la PGA) del usuario.\\
+
+\textbf{Ventajas:}
+\begin{itemize}
+    \item Permite ejecutar operaciones que implican procesamiento de datos en batch.
+    \item Permite emplear herramientas para realizar backups o recuperación 
+      de la base de datos (RMAN).
+    \item Útiles cuando las sesiones en las que la gran parte del tiempo están activas, 
+    realizando múltiples operaciones dentro de la base de datos. \\
+\end{itemize} 
+
+\textbf{Desventajas:}
+\begin{itemize}
+    \item Usó de gran cantidad de recursos de la computadora.
+\end{itemize}
+
+\subsubsection*{Modo compartido}
+
+\textbf{Descripción:} 
+Un proceso de servidor compartido puede dar servicio a múltiples procesos de usuario. 
+A cada petición se le asigna parte de la memoria compartida llama 
+\textit{\textbf{virtual circuit}} empleado por el dispatcher para atender a cada petición
+en la que se almacena información de las peticiones y respuestas del cliente. \\
+
+\textbf{Ventajas:}
+\begin{itemize}
+    \item Cuenta con un \textit{dispatcher} que se encarga de administrar 
+      los procesos de usuario.
+    \item El número de procesos requeridos para administrar las peticiones es menor, 
+      por lo que se consumen menos recursos.
+    \item Cuando un proceso compartido está inactivo o no está siendo utilizado 
+    por alguna sesión, este puede reutilizarse para atender otras peticiones. \\
+\end{itemize} 
+
+\textbf{Desventajas:}
+\begin{itemize}
+    \item Requiere que los clientes se conecten a la instancia a través de un 
+      servicio de red (Net Service) sin importar que la petición sea local.
+    \item El tiempo de ejecución de las sentencias puede ser mayor.
+    \item La actividad del CPU puede aumentar por la actividad de las colas.
+\end{itemize}
 
 \section*{C3. Código únicamente para \texttt{suscriptor} y ejecución del 
   script \texttt{s-03-<SID>-consultas.sql}}
@@ -201,6 +248,10 @@ comunicación bidireccional.
   \subsection*{Salida de Francisco Pablo Rodrigo}
 
   \lstinputlisting[firstline=158]{bdd_prac_06-codigo/validador.txt}
+
+  \subsection*{Salida de Flores Martínez Emanuel}
+
+  \lstinputlisting[firstline=158]{bdd_prac_06-codigo/efm_validador.txt}
 
 \section*{Comentarios y conclusiones}
 
