@@ -1,6 +1,6 @@
 idle> start s-08-validador-main.sql
 =========================================================
-Iniciando validador - Práctica 7
+Iniciando validador - Practica 7
 Presionar Enter si los valores configurados son correctos.
 De lo contario editar el script s-08-validador-main.sql
 O en su defecto proporcionar nuevos valores
@@ -11,7 +11,7 @@ Datos de Entrada:
 2. Proporcionar password del usuario editorial_bdd [Configurado en script]: 
 3. Nombre del sitio 1 (PDB 1). [efmbd_s1]: 
 4. Nombre del sitio 2 (PDB 2). [efmbd_s2]: 
-Indicar la estrategia de fragmentación para la tabla PAGO_SUSCRIPTOR:
+Indicar la estrategia de fragmentacion para la tabla PAGO_SUSCRIPTOR:
 A - Con respecto a ARTICULO (default)
 R - Con respecto a REVISTA
 Indicar valor [R]: 
@@ -45,7 +45,7 @@ No errors.
 No errors.
 No errors.
 ===============================================
-Iniciando proceso de validación de respuestas
+Iniciando proceso de validacion de respuestas
 Incluir en el reporte a partir de este punto
 ===============================================
 SESSION_TIME:	17/12/2020 18:47:57
@@ -70,7 +70,7 @@ CON_NAME:	EFMBD_S1
 2020-12-17 18:47:58.576-11579-MM.L0140.M014E.M014 ==> OK sinonimo SUSCRIPTOR_2
 2020-12-17 18:47:58.577-11579-PC.E015S.C015D.C015 ==> OK sinonimo SUSCRIPTOR_3
 2020-12-17 18:47:58.577-11579-CW.M0161.W016I.W016 ==> OK sinonimo SUSCRIPTOR_4
-2020-12-17 18:47:58.578-11579-0G.A017E.G017T.G017 ==> OK 16 sinónimos obtenidos
+2020-12-17 18:47:58.578-11579-0G.A017E.G017T.G017 ==> OK 16 sinonimos obtenidos
 2020-12-17 18:47:58.603-11579-EV.N018F.V018O.V018 ==> OK vista ARTICULO_E1
 2020-12-17 18:47:58.604-11579-FJ.U019M.J019R.J019 ==> OK vista ARTICULO_E2
 2020-12-17 18:47:58.605-11579-MX.E020B.X020I.X020 ==> OK vista ARTICULO_REVISTA
@@ -93,7 +93,7 @@ Registros encontrados empleando vistas
 2020-12-17 18:47:59.385-11579-FC.E036B.C0360.C036 ==> OK  Total pdf articulo    : 3145728
 2020-12-17 18:47:59.386-11579-IM.M037D.M037B.M037 ==> OK  Total pdf articulo e1 : 3145728
 2020-12-17 18:47:59.387-11579-0I.A0380.I038D.I038 ==> OK  Total pdf articulo e2 : 3145728
-2020-12-17 18:47:59.387-11579-UW.N039S.W039D.W039 ==> OK Validación concluida
+2020-12-17 18:47:59.387-11579-UW.N039S.W039D.W039 ==> OK Validacion concluida
 Iniciando validacion para efmbd_s2
 
 
@@ -124,7 +124,7 @@ No errors.
 No errors.
 No errors.
 ===============================================
-Iniciando proceso de validación de respuestas
+Iniciando proceso de validacion de respuestas
 Incluir en el reporte a partir de este punto
 ===============================================
 SESSION_TIME:	17/12/2020 18:48:00
@@ -148,7 +148,7 @@ CON_NAME:	EFMBD_S2
 2020-12-17 18:48:01.660-11579-AH.E013D.H013D.H013 ==> OK sinonimo SUSCRIPTOR_2
 2020-12-17 18:48:01.661-11579-MV.L0140.V014E.V014 ==> OK sinonimo SUSCRIPTOR_3
 2020-12-17 18:48:01.661-11579-PA.E015S.A015D.A015 ==> OK sinonimo SUSCRIPTOR_4
-2020-12-17 18:48:01.662-11579-CW.M0162.W016I.W016 ==> OK 15 sinónimos obtenidos
+2020-12-17 18:48:01.662-11579-CW.M0162.W016I.W016 ==> OK 15 sinonimos obtenidos
 2020-12-17 18:48:01.687-11579-0I.A017E.I017T.I017 ==> OK vista ARTICULO
 2020-12-17 18:48:01.688-11579-EQ.N018F.Q018O.Q018 ==> OK vista ARTICULO_REVISTA
 2020-12-17 18:48:01.689-11579-FS.U019M.S019R.S019 ==> OK vista PAGO_SUSCRIPTOR_E1
@@ -168,4 +168,4 @@ Registros encontrados empleando vistas
 2020-12-17 18:48:02.144-11579-EE.N0322.E032R.E032 ==> OK  Total pdf recibo e1   : 7340032
 2020-12-17 18:48:02.145-11579-FO.U033E.O033I.O033 ==> OK  Total pdf recibo e2   : 7340032
 2020-12-17 18:48:02.146-11579-MR.E034F.R034A.R034 ==> OK  Total pdf articulo    : 3145728
-2020-12-17 18:48:02.146-11579-0Z.L035M.Z035L.Z035 ==> OK Validación concluida
+2020-12-17 18:48:02.146-11579-0Z.L035M.Z035L.Z035 ==> OK Validacion concluida

@@ -1,6 +1,6 @@
 idle> @s-08-validador-main.sql
 =========================================================
-Iniciando validador - Práctica 7
+Iniciando validador - Practica 7
 Presionar Enter si los valores configurados son correctos.
 De lo contario editar el script s-08-validador-main.sql
 O en su defecto proporcionar nuevos valores
@@ -11,7 +11,7 @@ Datos de Entrada:
 2. Proporcionar password del usuario editorial_bdd [Configurado en script]: 
 3. Nombre del sitio 1 (PDB 1). [rfpbd_s1]: 
 4. Nombre del sitio 2 (PDB 2). [rfpbd_s2]: 
-Indicar la estrategia de fragmentación para la tabla PAGO_SUSCRIPTOR:
+Indicar la estrategia de fragmentacion para la tabla PAGO_SUSCRIPTOR:
 A - Con respecto a ARTICULO (default)
 R - Con respecto a REVISTA
 Indicar valor [R]: 
@@ -45,7 +45,7 @@ No errors.
 No errors.
 No errors.
 ===============================================                                                                                                                                                         
-Iniciando proceso de validación de respuestas                                                                                                                                                           
+Iniciando proceso de validacion de respuestas                                                                                                                                                           
 Incluir en el reporte a partir de este punto                                                                                                                                                            
 ===============================================                                                                                                                                                         
 SESSION_TIME:	19/12/2020 00:35:19
@@ -70,7 +70,7 @@ CON_NAME:	RFPBD_S1
 2020-12-19 00:35:20.160-906224-ML.O0140.L014E.L014 ==> OK sinonimo SUSCRIPTOR_2                                                                                                                         
 2020-12-19 00:35:20.161-906224-PM.R015S.M015D.M015 ==> OK sinonimo SUSCRIPTOR_3                                                                                                                         
 2020-12-19 00:35:20.162-906224-CM.O0161.M016I.M016 ==> OK sinonimo SUSCRIPTOR_4                                                                                                                         
-2020-12-19 00:35:20.162-906224-0F.D017R.F017T.F017 ==> OK 16 sinónimos obtenidos                                                                                                                        
+2020-12-19 00:35:20.162-906224-0F.D017R.F017T.F017 ==> OK 16 sinonimos obtenidos                                                                                                                        
 2020-12-19 00:35:20.188-906224-RW.R018F.W018O.W018 ==> OK vista ARTICULO_E1                                                                                                                             
 2020-12-19 00:35:20.189-906224-FX.I019P.X019R.X019 ==> OK vista ARTICULO_E2                                                                                                                             
 2020-12-19 00:35:20.190-906224-PO.G020B.O020I.O020 ==> OK vista ARTICULO_REVISTA                                                                                                                        
@@ -93,7 +93,7 @@ Registros encontrados empleando vistas
 2020-12-19 00:35:21.446-906224-FP.R036B.P0360.P036 ==> OK  Total pdf articulo    : 3145728                                                                                                              
 2020-12-19 00:35:21.447-906224-IW.O037D.W037B.W037 ==> OK  Total pdf articulo e1 : 3145728                                                                                                              
 2020-12-19 00:35:21.447-906224-0V.D0380.V038D.V038 ==> OK  Total pdf articulo e2 : 3145728                                                                                                              
-2020-12-19 00:35:21.448-906224-UQ.R039S.Q039D.Q039 ==> OK Validación concluida                                                                                                                          
+2020-12-19 00:35:21.448-906224-UQ.R039S.Q039D.Q039 ==> OK Validacion concluida                                                                                                                          
 Iniciando validacion para rfpbd_s2
 
 
@@ -124,7 +124,7 @@ No errors.
 No errors.
 No errors.
 ===============================================                                                                                                                                                         
-Iniciando proceso de validación de respuestas                                                                                                                                                           
+Iniciando proceso de validacion de respuestas                                                                                                                                                           
 Incluir en el reporte a partir de este punto                                                                                                                                                            
 ===============================================                                                                                                                                                         
 SESSION_TIME:	19/12/2020 00:35:22
@@ -148,7 +148,7 @@ CON_NAME:	RFPBD_S2
 2020-12-19 00:35:23.657-906224-AM.G013D.M013D.M013 ==> OK sinonimo SUSCRIPTOR_2                                                                                                                         
 2020-12-19 00:35:23.658-906224-MN.O0140.N014E.N014 ==> OK sinonimo SUSCRIPTOR_3                                                                                                                         
 2020-12-19 00:35:23.659-906224-PK.R015S.K015D.K015 ==> OK sinonimo SUSCRIPTOR_4                                                                                                                         
-2020-12-19 00:35:23.660-906224-CO.O0162.O016I.O016 ==> OK 15 sinónimos obtenidos                                                                                                                        
+2020-12-19 00:35:23.660-906224-CO.O0162.O016I.O016 ==> OK 15 sinonimos obtenidos                                                                                                                        
 2020-12-19 00:35:23.685-906224-0D.D017R.D017T.D017 ==> OK vista ARTICULO                                                                                                                                
 2020-12-19 00:35:23.686-906224-RW.R018F.W018O.W018 ==> OK vista ARTICULO_REVISTA                                                                                                                        
 2020-12-19 00:35:23.687-906224-FB.I019P.B019R.B019 ==> OK vista PAGO_SUSCRIPTOR_E1                                                                                                                      
@@ -168,4 +168,4 @@ Registros encontrados empleando vistas
 2020-12-19 00:35:24.136-906224-RM.R0322.M032R.M032 ==> OK  Total pdf recibo e1   : 7340032                                                                                                              
 2020-12-19 00:35:24.137-906224-FI.I033R.I033I.I033 ==> OK  Total pdf recibo e2   : 7340032                                                                                                              
 2020-12-19 00:35:24.138-906224-PT.G034F.T034A.T034 ==> OK  Total pdf articulo    : 3145728                                                                                                              
-2020-12-19 00:35:24.138-906224-0Y.O035P.Y035L.Y035 ==> OK Validación concluida                                                                                                                          
+2020-12-19 00:35:24.138-906224-0Y.O035P.Y035L.Y035 ==> OK Validacion concluida                                                                                                                          

@@ -1,6 +1,5 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}                  % Temporary added
 \usepackage[spanish]{babel}
 \usepackage{graphicx}
 \usepackage{anysize}
@@ -17,7 +16,7 @@
 % \usepackage{tabu}
 
 % Izquierda, derecha, arriba, abajo
-\marginsize{1.5cm}{2cm}{1.2cm}{1cm} 
+\marginsize{1.5cm}{2cm}{1cm}{1cm} 
 \renewcommand{\familydefault}{\sfdefault}
 \decimalpoint%
 
@@ -86,7 +85,7 @@
     % Strut to ensure a 1/4 \baselineskip between image and header rule
     \includegraphics[height=3\baselineskip,valign=c]{unam}
 }
-\setlength{\headsep}{0.3in}
+\setlength{\headsep}{0.2in}
 
 \begin{document}
 %%%%%%%%%%%%%%%%%%% DATOS PORTADA %%%%%%%%%%%%%%%%%%%%%%%%
@@ -142,7 +141,22 @@
 
 \section*{Introducción}
 
-%TODO:- Escribir intro en tiempo futuro
+En prácticas pasadas se implementó la transparencia de mapeos locales por 
+medio de un artefacto de Oracle llamado `ligas', en esta práctica se 
+implementará la transparencia de localización y fragmentación por medio de
+sinónimos y vistas. Además, se explicará como realizar el manejo de archivos
+blob de manera destribuida para lo cual se requiere tener fuertes conocimientos
+de PL/SQL ya que se empleará por medio de funciones, procedimientos 
+almacenados, cursores, etc.\\
+
+A nivel general existen 2 estrategias para implementar el uso de archivo LOB
+en un sistema de base de datos distribuido. En la primera estrategia se 
+recolectarán todos los datos de la tabla lo cual puede ser costoso en tiempo
+y recursos, empero esto dependerá de la consulta ejectuda del lado del cliente
+final. La segunda estrategía esta más optimizada para cuando se requiera
+hacer uso de LOB en particular. De hecho usarlo para consultar todos los 
+registros de la tabla podría ser contraproducente.
+
 \section*{Objetivos}
 
 Comprender e implementar transparencia de localización y de fragmentación 
@@ -152,24 +166,57 @@ aplicados a una base de datos distribuida para realizar operaciones
 \section*{C1. Código SQL que contiene la definición de una vista que requiere 
   el manejo de datos BLOB con estrategia 1 y 2.}
 
+  \lstinputlisting[language=SQL,firstline=126,lastline=148]
+  {\codedir/s-05-rfpbd_s2-soporte-blobs.sql}
+
 \section*{C2. Código SQL para una consulta empleando las vistas con 
   fragmentación híbrida }
 
+  Nota: La transparencia de fragmentación implica `esconder' el uso de 
+  fragmentos, por esa razón para hacer el conteo de datos en la tabla
+  suscriptor (fragmentación híbrida) simplemente escribimos \texttt{count(*)} 
+  y lo aplicamos a la vista \texttt{suscriptor}. \\
+
+  En los otros nivel de transparencia se observa que antes de hacer el conteo
+  de registros era necesario primero hacer la reconstrucción de la tabla
+  por medio de uniones y joins.
+
+  \lstinputlisting[language=SQL,firstline=10,lastline=16]
+  {\codedir/s-06-rfp-consultas-fragmentacion.sql}
+
+%\newpage
 \section*{C3. Salida de ejecución del script de validación}
 
-\subsection*{Salida de Flores Martinez Emanuel}
+\begin{itemize}
+  \item  \textbf{Salida de Flores Martinez Emanuel}
+  \lstinputlisting[firstline=47,lastline=98]
+    {bdd_prac_07.assets/efm-validador.txt}
+  \lstinputlisting[firstline=126]
+    {bdd_prac_07.assets/efm-validador.txt}
 
-\lstinputlisting[firstline=47,lastline=98]{bdd_prac_07.assets/efm-validador.txt}
-\lstinputlisting[firstline=126]{bdd_prac_07.assets/efm-validador.txt}
-
-\subsection*{Salida de Francisco Pablo Rodrigo}
-
-\lstinputlisting[firstline=47,lastline=98]{bdd_prac_07.assets/rfp-validador.txt}
-\lstinputlisting[firstline=126]{bdd_prac_07.assets/rfp-validador.txt}
+  \item \textbf{Salida de Francisco Pablo Rodrigo}
+  \lstinputlisting[firstline=47,lastline=98]
+    {bdd_prac_07.assets/rfp-validador.txt}
+  \lstinputlisting[firstline=126]
+    {bdd_prac_07.assets/rfp-validador.txt}
+\end{itemize}
 
 \section*{Comentarios y conclusiones}
 
-%TODO:- Escribir conclusiones
+La transparencia de fragmentación nos ofrece sencillez del lado del usuario 
+para realizar consultas como si estuvieramos de forma centralizada. Sin 
+embargo, siempre se debe tomar en cuenta que al estar en un ambiente 
+distribuido los costos de algunas operaciones se incrementarán y más si 
+trabajamos con archivos LOB. Por lo cual a pesar de tener implementado el 
+nivel de transparencia de mayor jerárquica debemos seguir afinando nuestro
+proyecto para que funcione de la manera más óptima posible.\\
+
+Por otra parte, implementar LOBs de manera distruida representa un reto y 
+para alcanzar dicho objetivo se tienen que tener conocimientos sólidos de 
+como funciona el manejador en donde se este implementando. De hecho, en esta
+práctica aprendimos a utilizar los objetivos tipo que van de la mano con las 
+funciones.Y a su vez aprendimos a realizar transacciones en una función y como
+evitar que estas afecten la integridad de la base de datos.
 
 \renewcommand\refname{Bibliografía}
 \begin{thebibliography}{99}
