@@ -14,7 +14,13 @@
 \usepackage[export]{adjustbox}        % Allows to resize tables
 \usepackage{enumitem}                 % Controls the item position 
 \usepackage{listings}                 % Package for code fences
-\usepackage{xcolor}                   % Create colors
+%\usepackage{xcolor}                   % Create colors
+\usepackage[
+  table,
+  svgnames,
+  dvipsnames
+]{xcolor}                             % Colors for code fences and 
+                                      %table (rowcolor)
 \usepackage{textcomp}                 % Helps to display quotes symbols properly
 \usepackage{array}                    % Align fix size columns in tables
 
@@ -154,7 +160,7 @@
 \newcommand{\faculty}{Facultad de Ingeniería}
 \newcommand{\semestre}{2021-1}
 \newcommand{\materia}{BDD}
-\newcommand{\clave}{2947}
+\newcommand{\clave}{294}
 \newcommand{\grupo}{1}
 \newcommand{\profesor}{Ing. Rodriguez Campos \textsc{Jorge Alberto}}
 
@@ -189,16 +195,16 @@
 
 \section*{Tabla de asignación de sitios}
 
-\newcounter{fragmentCounter}
+\newcounter{nodeCounter}
 \newcommand{\nameTabBuilder}[1]{F\_RFP\_#1}
-\newcommand{\subfixRfpSI}{RFP\_S1}
-\newcommand{\subfixRfpSII}{RFP\_S2}
-\newcommand{\subfixEfmSI}{EFM\_S1}
-\newcommand{\subfixEfmSII}{EFM\_S2}
-\newcommand{\pdbRfpSI}{rfpbd\_s1.fi.unam}
-\newcommand{\pdbRfpSII}{rfpbd\_s2.fi.unam}
-\newcommand{\pdbEfmSI}{efmbd\_s1.fi.unam}
-\newcommand{\pdbEfmSII}{efmbd\_s2.fi.unam}
+\newcommand{\snI}{RFP\_S1}
+\newcommand{\snII}{RFP\_S2}
+\newcommand{\snIII}{EFM\_S1}
+\newcommand{\snIV}{EFM\_S2}
+\newcommand{\pdbI}{rfpbd\_s1.fi.unam}
+\newcommand{\pdbII}{rfpbd\_s2.fi.unam}
+\newcommand{\pdbIII}{efmbd\_s1.fi.unam}
+\newcommand{\pdbIV}{efmbd\_s2.fi.unam}
 
 {
   \setlength\tabcolsep{3.5mm}
@@ -219,52 +225,48 @@
   %%%%% End: Table header 
   %
   % row 1
-  \stepcounter{fragmentCounter} \arabic{fragmentCounter} &
+  \stepcounter{nodeCounter} \arabic{nodeCounter} &
   Se encuentra en la región AME y es el servidor con la mayor capacidad 
   de procesamiento & 
- \pdbRfpSI & 
-  \subfixRfpSI 
+ \pdbI & 
+  \snI 
   \\ \hline
   %
   % row 2
-  \stepcounter{fragmentCounter} \arabic{fragmentCounter} &
+  \stepcounter{nodeCounter} \arabic{nodeCounter} &
   Se encuentra en la región EUR & 
- \pdbRfpSII & 
- \subfixRfpSII
+  \pdbII & 
+  \snII
   \\ \hline
   %
   % row 3
-  \stepcounter{fragmentCounter} \arabic{fragmentCounter} &
+  \stepcounter{nodeCounter} \arabic{nodeCounter} &
   Cuenta con una VPN que conecta al servidor con las oficinas de los dueños de 
   la empresa, así como herramientas para cifrado de datos. Se encuentra en las 
   oficinas centrales de la empresa en USA. & 
- \pdbEfmSI & 
- \subfixEfmSI
+  \pdbIII & 
+  \snIII
   \\ \hline
   %
   % row 4
-  \stepcounter{fragmentCounter} \arabic{fragmentCounter} &
+  \stepcounter{nodeCounter} \arabic{nodeCounter} &
   Cuenta con herramientas para realizar procesamiento de contenido multimedia. 
   Así como una gran capacidad de almacenamiento. Se encuentra en las oficinas 
   centrales de la empresa en USA. & 
- \pdbEfmSII & 
- \subfixEfmSII
-  \\ \hline
-  %
-  % row 5
-  \stepcounter{fragmentCounter} \arabic{fragmentCounter} &
-  TODO & 
-  PBD & 
-  SUFIJO
+  \pdbIV & 
+  \snIV
   \\ \hline
   \end{longtable}
 }
+
+\section*{Tabla de fragmentación}
+
+\input{bdd_proyecto-frags}
 
 \begin{thebibliography}{99}
     \bibitem{oracle} Oracle. \textit{Oracle Database Documentation} en 
         \texttt{https://docs.oracle.com/en/database/oracle/\\oracle-database/%
         index.html}
-    %  TODO:- Add more references
 \end{thebibliography}
 
 \end{document}

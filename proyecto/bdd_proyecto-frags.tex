@@ -1,0 +1,313 @@
+\newcounter{fragmentCounter}
+\newcommand{\cpm}{COPIA MANUAL}
+\newcommand{\tbr}{TABLA REPLICADA}
+\newcommand{\tx}[1]{\text{#1}}   
+{
+  \setlength\tabcolsep{1mm}
+  \def\arraystretch{2}          % Do not define globally (for that reason we
+                                % enclose table inside brackets)
+  \begin{longtable}{
+    |C{0.05\linewidth}
+    |C{0.3\linewidth}
+    |C{0.6\linewidth}|}
+  \hline
+  %%%%% Start: Table header 
+  \textbf{Núm frag.} &
+  \textbf{Nombre del fragmento} &
+  \textbf{Expresión algebraica} 
+  \\ \hline
+  %%%%% End: Table header 
+  %
+  % row 1
+  \stepcounter{fragmentCounter} \arabic{fragmentCounter} &
+  STATUS\_AUTO & 
+  \cpm 
+  \\ \hline
+  %
+  % row 2
+  \stepcounter{fragmentCounter} \arabic{fragmentCounter} &
+  MARCA\_R\_RFP\_S1 & 
+  \tbr 
+  \\ \hline
+  %
+  % row 3
+  \stepcounter{fragmentCounter} \arabic{fragmentCounter} &
+  MARCA\_R\_RFP\_S2 & 
+  \tbr 
+  \\ \hline
+  %
+  % row 4
+  \stepcounter{fragmentCounter} \arabic{fragmentCounter} &
+  MARCA\_R\_EFM\_S1 & 
+  \tbr 
+  \\ \hline
+  %
+  % row 5
+  \stepcounter{fragmentCounter} \arabic{fragmentCounter} &
+  MARCA\_R\_EFM\_S2 & 
+  \tbr 
+  \\ \hline
+  %
+  % row 6
+  \stepcounter{fragmentCounter} \arabic{fragmentCounter} &
+  MODELO\_R\_RFP\_S1 & 
+  \tbr 
+  \\ \hline
+  %
+  % row 7
+  \stepcounter{fragmentCounter} \arabic{fragmentCounter} &
+  MODELO\_R\_RFP\_S2 & 
+  \tbr 
+  \\ \hline
+  %
+  % row 8
+  \stepcounter{fragmentCounter} \arabic{fragmentCounter} &
+  MODELO\_R\_EFM\_S1 & 
+  \tbr 
+  \\ \hline
+  %
+  % row 9
+  \stepcounter{fragmentCounter} \arabic{fragmentCounter} &
+  MODELO\_R\_EFM\_S2 & 
+  \tbr 
+  \\ \hline  
+  %
+  % row 10
+  \stepcounter{fragmentCounter} \arabic{fragmentCounter} &
+  PAIS\_F1\_RFP\_S1 & 
+  \begin{minipage}[b]{\linewidth}
+    \begin{equation*}
+      \sigma_{\tx{clave $=$ `AME'}}(\tx{PAIS})  
+    \end{equation*} 
+  \end{minipage} 
+  \\ \hline  
+  %
+  % row 11
+  \stepcounter{fragmentCounter} \arabic{fragmentCounter} &
+  PAIS\_F2\_RFP\_S2 & 
+  \begin{minipage}[b]{\linewidth}
+    \begin{equation*}
+      \sigma_{\tx{clave $=$ `EUR'}}(\tx{PAIS})  
+    \end{equation*} 
+  \end{minipage} 
+  \\ \hline  
+  %
+  % row 12
+  \stepcounter{fragmentCounter} \arabic{fragmentCounter} &
+  SUCURSAL\_F1\_\snIII & 
+  \begin{minipage}[b]{\linewidth}
+    \begin{equation*}
+      \sigma_{\tx{clave $=$ `00000'}}(\tx{SUCURSAL})  
+    \end{equation*} 
+  \end{minipage} 
+  \\ \hline  
+  %
+  % row 13
+  \rowcolor{Gainsboro!60}
+  &
+  SUCURSAL\_F2' & 
+  \begin{minipage}[b]{\linewidth}
+    \begin{equation*}
+      \sigma_{\tx{clave $< >$ `00000'}}(\tx{SUCURSAL})  
+    \end{equation*} 
+  \end{minipage} 
+  \\ \hline  
+  %
+  % row 14
+  \stepcounter{fragmentCounter} \arabic{fragmentCounter} &
+  SUCURSAL\_F2\_\snI & 
+  \begin{minipage}[b]{\linewidth}
+    \begin{equation*}
+      \tx{SUCURSAL\_F2'} \ltimes_{\tx{pais\_id}} \tx{PAIS\_F1\_\snI}
+    \end{equation*} 
+  \end{minipage} 
+  \\ \hline  
+  %
+  % row 15
+  \stepcounter{fragmentCounter} \arabic{fragmentCounter} &
+  SUCURSAL\_F3\_\snII & 
+  \begin{minipage}[b]{\linewidth}
+    \begin{equation*}
+      \tx{SUCURSAL\_F2'} \ltimes_{\tx{pais\_id}} \tx{PAIS\_F2\_\snII}
+    \end{equation*} 
+  \end{minipage} 
+  \\ \hline  
+  %
+  % row 16
+  \stepcounter{fragmentCounter} \arabic{fragmentCounter} &
+  AUTO\_F1\_\snIV & 
+  \begin{minipage}[b]{\linewidth}
+    \begin{equation*}
+      \pi_{\tx{auto\_id, foto}}(\tx{AUTO})
+    \end{equation*} 
+  \end{minipage} 
+  \\ \hline  
+  %
+  % row 17
+  \rowcolor{Gainsboro!60}
+  &
+  AUTO\_F2' & 
+  \begin{minipage}[b]{\linewidth}
+    \begin{equation*}
+      \pi_{\substack{\tx{auto\_id, anio,num\_serie,tipo,precio,fecha\_status,}\\
+      \tx{sucursal\_id,status\_auto\_id,modelo\_id}}}(\tx{AUTO})
+    \end{equation*} 
+  \end{minipage} 
+  \\ \hline  
+  %
+  % row 18
+  \stepcounter{fragmentCounter} \arabic{fragmentCounter} &
+  AUTO\_F2\_\snI & 
+  \begin{minipage}[b]{\linewidth}
+    \begin{equation*}
+      \tx{AUTO\_F2'} \ltimes_{\tx{sucursal\_id}} \tx{SUCURSAL\_F2\_\snI}
+    \end{equation*} 
+  \end{minipage} 
+  \\ \hline  
+  %
+  % row 19
+  \stepcounter{fragmentCounter} \arabic{fragmentCounter} &
+  AUTO\_F3\_\snII & 
+  \begin{minipage}[b]{\linewidth}
+    \begin{equation*}
+      \tx{AUTO\_F2'} \ltimes_{\tx{sucursal\_id}} \tx{SUCURSAL\_F3\_\snII}
+    \end{equation*} 
+  \end{minipage} 
+  \\ \hline  
+  %
+  % row 20
+  \stepcounter{fragmentCounter} \arabic{fragmentCounter} &
+  AUTO\_PARTICULAR\_F1\_\snI & 
+  \begin{minipage}[b]{\linewidth}
+    \begin{equation*}
+      \tx{AUTO\_PARTICULAR} \ltimes_{\tx{auto\_id}} \tx{AUTO\_F2\_\snI}
+    \end{equation*} 
+  \end{minipage} 
+  \\ \hline  
+  %
+  % row 21
+  \stepcounter{fragmentCounter} \arabic{fragmentCounter} &
+  AUTO\_PARTICULAR\_F2\_\snII & 
+  \begin{minipage}[b]{\linewidth}
+    \begin{equation*}
+      \tx{AUTO\_PARTICULAR} \ltimes_{\tx{auto\_id}} \tx{AUTO\_F3\_\snII}
+    \end{equation*} 
+  \end{minipage} 
+  \\ \hline  
+  %
+  % row 22
+  \stepcounter{fragmentCounter} \arabic{fragmentCounter} &
+  AUTO\_CARGA\_F1\_\snI & 
+  \begin{minipage}[b]{\linewidth}
+    \begin{equation*}
+      \tx{AUTO\_CARGA} \ltimes_{\tx{auto\_id}} \tx{AUTO\_F2\_\snI}
+    \end{equation*} 
+  \end{minipage} 
+  \\ \hline  
+  %
+  % row 23
+  \stepcounter{fragmentCounter} \arabic{fragmentCounter} &
+  AUTO\_CARGA\_F2\_\snII & 
+  \begin{minipage}[b]{\linewidth}
+    \begin{equation*}
+      \tx{AUTO\_CARGA} \ltimes_{\tx{auto\_id}} \tx{AUTO\_F3\_\snII}
+    \end{equation*} 
+  \end{minipage} 
+  \\ \hline  
+  %
+  % row 24
+  \stepcounter{fragmentCounter} \arabic{fragmentCounter} &
+  HISTORICO\_STATUS\_AUTO\_F1\_\snIV & 
+  \begin{minipage}[b]{\linewidth}
+    \begin{equation*}
+      \sigma_{\tx{to\_char(fecha\_status,`yyyy') $<=$ `2010'}}
+      (\tx{HISTORICO\_STATUS\_AUTO})
+    \end{equation*} 
+  \end{minipage} 
+  \\ \hline  
+  %
+  % row 25
+  \stepcounter{fragmentCounter} \arabic{fragmentCounter} &
+  HISTORICO\_STATUS\_AUTO\_F2\_\snIII & 
+  \begin{minipage}[b]{\linewidth}
+    \begin{equation*}
+      \sigma_{\tx{to\_char(fecha\_status,`yyyy') $>$ `2010'}}
+      (\tx{HISTORICO\_STATUS\_AUTO})
+    \end{equation*} 
+  \end{minipage} 
+  \\ \hline  
+  %
+  % row 26
+  \stepcounter{fragmentCounter} \arabic{fragmentCounter} &
+  CLIENTE\_F1\_\snII & 
+  \begin{minipage}[b]{\linewidth}
+    \begin{equation*}
+      \sigma_{\tx{substr(ap\_paterno,1,1) between `A' and `I'}}
+      (\tx{CLIENTE})
+    \end{equation*} 
+  \end{minipage} 
+  \\ \hline  
+  %
+  % row 27
+  \stepcounter{fragmentCounter} \arabic{fragmentCounter} &
+  CLIENTE\_F2\_\snIII & 
+  \begin{minipage}[b]{\linewidth}
+    \begin{equation*}
+      \sigma_{\tx{substr(ap\_paterno,1,1) between `J' and `Q'}}
+      (\tx{CLIENTE})
+    \end{equation*} 
+  \end{minipage} 
+  \\ \hline  
+  %
+  % row 28
+  \stepcounter{fragmentCounter} \arabic{fragmentCounter} &
+  CLIENTE\_F3\_\snIV & 
+  \begin{minipage}[b]{\linewidth}
+    \begin{equation*}
+      \sigma_{\tx{substr(ap\_paterno,1,1) between `R' and `Z'}}
+      (\tx{CLIENTE})
+    \end{equation*} 
+  \end{minipage} 
+  \\ \hline  
+  %
+  % row 29
+  \stepcounter{fragmentCounter} \arabic{fragmentCounter} &
+  PAGO\_AUTO\_F1\_\snI & 
+  \begin{minipage}[b]{\linewidth}
+    \begin{equation*}
+      \tx{PAGO\_AUTO} \ltimes_{\tx{auto\_id}} \tx{AUTO\_F2\_\snI}
+    \end{equation*} 
+  \end{minipage} 
+  \\ \hline  
+  %
+  % row 30
+  \stepcounter{fragmentCounter} \arabic{fragmentCounter} &
+  PAGO\_AUTO\_F2\_\snII & 
+  \begin{minipage}[b]{\linewidth}
+    \begin{equation*}
+      \tx{PAGO\_AUTO} \ltimes_{\tx{auto\_id}} \tx{AUTO\_F3\_\snII}
+    \end{equation*} 
+  \end{minipage} 
+  \\ \hline  
+  %
+  % row 31
+  \stepcounter{fragmentCounter} \arabic{fragmentCounter} &
+  TARJETA\_CLIENTE\_F1\_\snIII & 
+  \begin{minipage}[b]{\linewidth}
+    \begin{equation*}
+      \pi_{\tx{cliente\_id,num\_tarjeta,codigo\_seguridad}}(\tx{TARJETA\_CLIENTE})
+    \end{equation*} 
+  \end{minipage} 
+  \\ \hline  
+  %
+  % row 32
+  \stepcounter{fragmentCounter} \arabic{fragmentCounter} &
+  TARJETA\_CLIENTE\_F2\_\snII & 
+  \begin{minipage}[b]{\linewidth}
+    \begin{equation*}
+      \pi_{\tx{cliente\_id,anio\_expira,mes\_expira,tipo}}(\tx{TARJETA\_CLIENTE})
+    \end{equation*} 
+  \end{minipage} 
+  \\ \hline  
+  \end{longtable}
+}
