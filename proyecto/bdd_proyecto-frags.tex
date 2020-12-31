@@ -55,13 +55,13 @@
   %
   % row 4
   \stepcounter{fragmentCounter} \arabic{fragmentCounter} &
-  MARCA\_R\_\snI & 
+  MARCA\_R\_\snIII & 
   \tbr 
   \\ \hline
   %
   % row 5
   \stepcounter{fragmentCounter} \arabic{fragmentCounter} &
-  MARCA\_R\_\snII & 
+  MARCA\_R\_\snIV & 
   \tbr 
   \\ \hline
   %
@@ -79,13 +79,13 @@
   %
   % row 8
   \stepcounter{fragmentCounter} \arabic{fragmentCounter} &
-  MODELO\_R\_\snI & 
+  MODELO\_R\_\snIII & 
   \tbr 
   \\ \hline
   %
   % row 9
   \stepcounter{fragmentCounter} \arabic{fragmentCounter} &
-  MODELO\_R\_\snII & 
+  MODELO\_R\_\snIV & 
   \tbr 
   \\ \hline  
   %
@@ -242,10 +242,10 @@
   %
   % row 24
   \stepcounter{fragmentCounter} \arabic{fragmentCounter} &
-  \fragNameBuilder{\historico}{F1}{\snIV} &
+  \fragNameBuilder{\historico}{F1}{\snIII} &
   \begin{minipage}[b]{\linewidth}
     \begin{equation*}
-      \sigma_{\tx{to\_char(fecha\_status,`yyyy') $<=$ `2010'}}
+      \sigma_{\tx{to\_char(fecha\_status,`yyyy') $>$ `2010'}}
       (\tx{\historico})
     \end{equation*} 
   \end{minipage} 
@@ -253,10 +253,10 @@
   %
   % row 25
   \stepcounter{fragmentCounter} \arabic{fragmentCounter} &
-  \fragNameBuilder{\historico}{F2}{\snIII} &
+  \fragNameBuilder{\historico}{F2}{\snIV} &
   \begin{minipage}[b]{\linewidth}
     \begin{equation*}
-      \sigma_{\tx{to\_char(fecha\_status,`yyyy') $>$ `2010'}}
+      \sigma_{\tx{to\_char(fecha\_status,`yyyy') $<=$ `2010'}}
       (\tx{\historico})
     \end{equation*} 
   \end{minipage} 
@@ -319,10 +319,10 @@
   %
   % row 31
   \stepcounter{fragmentCounter} \arabic{fragmentCounter} &
-  \fragNameBuilder{\tarjeta}{F1}{\snIII} &
+  \fragNameBuilder{\tarjeta}{F1}{\snII} &
   \begin{minipage}[b]{\linewidth}
     \begin{equation*}
-      \pi_{\tx{cliente\_id,num\_tarjeta,codigo\_seguridad}}
+      \pi_{\tx{cliente\_id,anio\_expira,mes\_expira,tipo}}
       (\tx{\tarjeta})
     \end{equation*} 
   \end{minipage} 
@@ -330,10 +330,10 @@
   %
   % row 32
   \stepcounter{fragmentCounter} \arabic{fragmentCounter} &
-  \fragNameBuilder{\tarjeta}{F2}{\snII} &
+  \fragNameBuilder{\tarjeta}{F2}{\snIII} &
   \begin{minipage}[b]{\linewidth}
     \begin{equation*}
-      \pi_{\tx{cliente\_id,anio\_expira,mes\_expira,tipo}}
+      \pi_{\tx{cliente\_id,num\_tarjeta,codigo\_seguridad}}
       (\tx{\tarjeta})
     \end{equation*} 
   \end{minipage} 
