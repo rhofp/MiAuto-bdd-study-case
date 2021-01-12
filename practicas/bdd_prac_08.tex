@@ -1,0 +1,257 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\usepackage{anysize}
+\usepackage{fancyhdr} 
+\usepackage[export]{adjustbox}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{listings}
+\usepackage{xcolor}
+% \usepackage{hyperref}
+% \usepackage{float}
+% \usepackage{tabu}
+
+% Izquierda, derecha, arriba, abajo
+\marginsize{1.5cm}{2cm}{1cm}{1cm} 
+\renewcommand{\familydefault}{\sfdefault}
+\decimalpoint%
+
+\setlength{\parindent}{0in}
+\titleformat*{\section}{\large\bfseries}
+
+% Para insert código
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{1,1,1}
+
+\usepackage{textcomp}
+\lstset{upquote=true}
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    % numbers=left,                    
+    % numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\newcommand{\materia}{BDD}
+\newcommand{\clave}{2947}
+\newcommand{\profesor}{Ing. Rodriguez Campos \textsc{Jorge Alberto}}
+\newcommand{\grupo}{1}
+\newcommand{\semestre}{2021-1}
+
+\newcommand{\alumno}{
+    Francisco Pablo \textsc{Rodrigo}  \\ 
+    Flores Martinez \textsc{Emanuel}   
+}
+
+\newcommand{\actividad}{Práctica 08}
+\newcommand{\titulo}{Transparencia de distribución para la instrucciones DML}
+
+\newcommand{\fechaEntrega}{11 de enero de 2021}
+
+\newcommand{\codedir}{bdd_prac_08-codigo}
+\graphicspath{{assets/}{bdd_prac_08.assets/}}
+
+%%%%%%%%%%%%%%%%%%%% ENCABEZADO %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[R]{% Left header
+    \begin{tabular}{l}
+        \materia \\ 
+        \actividad%
+    \end{tabular}
+    \,% Space
+    \rule[-1.75\baselineskip]{0pt}{0pt}
+    % Strut to ensure a 1/4 \baselineskip between image and header rule
+    \includegraphics[height=3\baselineskip,valign=c]{unam}
+}
+\setlength{\headsep}{0.2in}
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%% DATOS PORTADA %%%%%%%%%%%%%%%%%%%%%%%%
+\thispagestyle{empty}
+\begin{minipage}[t][5cm][t]{0.2\linewidth}
+    \includegraphics[width=2.5cm]{unam.jpg}
+    \vspace{10cm}
+
+    \includegraphics[width=2.5cm]{fiblack}
+\end{minipage}
+\begin{minipage}[t]{0.7\linewidth}
+    \vspace{-2.5cm}
+    \LARGE{\textbf{Universidad Nacional Autónoma de México}}\\
+    \Large{\textbf{Facultad de Ingeniería}} \\
+
+    \large{\semestre}\\[2cm]
+
+    \large{\textbf{\materia (\clave)}}\\
+    \large{\textbf{Gpo: 1}}\\[5mm]
+    \large{\textbf{Profesor:} \profesor}\\ [1.5cm]
+    \begin{center}
+        \LARGE{\textbf{\actividad}}\\
+        \LARGE{\textbf{\titulo}}\\
+    \end{center}
+
+    \vspace{3.3cm}
+
+    % \large{\textbf{Alumno:} \alumno} \\[1.5cm]
+    \large{
+        \begin{itemize}[
+            noitemsep,
+            % topsep=0pt,
+            % parsep=0pt,
+            % partopsep=0pt,
+            % labelwidth=5cm,
+            align=left,
+            % itemindent=2cm
+        ]
+            \item [\textbf{Alumno(s):}] 
+            \begin{flushright}
+                \alumno
+            \end{flushright}
+        \end{itemize}
+    } \vspace{1.5cm}
+
+    \begin{flushright}
+        \fechaEntrega%
+    \end{flushright}
+\end{minipage}
+
+\newpage
+%%%%%%%%%%%%%%%%%%% CONTENIDO %%%%%%%%%%%%%%%%%%%%%%%%
+
+\section*{Introducción}
+
+A manera de recordatorio, en las prácticas pasadas se realizó la transparencia
+de distribución para instrucciones SELECT. En esta práctica se implementará la
+transparencia de distribución para instrucciones DML. En manejador de Oracle no
+ofrece mecanismos especializados para tratar las instrucciones DML en un
+ambiente distribuido, por lo cual, corresponde al responsable del software
+encargarse de implementarlas de manera manual. Dicho de otro modo, es imposible
+que el manejador ofrezca dicha transparencia debido a que cada caso de estudio
+tiene reglas establecidas con base en la arquitectura y licencias que se cuenten
+o que se puedan aquirir.\\
+
+La transparencia de localización se debe implementar utilizando programación
+SQL, PL/SQL para el caso de Oracle. Se requiere tener conocimientos sólidos
+sobre el funcionamiento de los \texttt{triggers}, procedimientos alamacenados y
+funciones. Al realizar la práctica se deben de identificar las estrategias que
+permitan optimizar el uso de la red. Por ellos se recomienda implementar por
+separado los triggers del sitio 1 y del sitio 2.
+
+
+\section*{Objetivos}
+
+\begin{itemize}
+  \item Para todas las actividades de esta práctica, considerar el esquema de
+  fragmentación de la práctica anterior.  
+  \item La práctica puede realizarse en equipo de 2 personas. Para este caso
+    cada integrante deberá realizar todas las actividades en sus respectivos
+ambientes.
+\end{itemize}
+
+\section*{C1. Extracto del trigger para \texttt{pais} que implementa la 
+sentencia \texttt{update}}
+\textbf{Flores Martinez Emanuel}
+\begin{itemize}
+  \item \texttt{s-03-rfp-pais-trigger.sql}
+  \lstinputlisting[language=SQL,firstline=28,lastline=68]
+  {\codedir/s-03-rfp-pais-trigger.sql}
+\end{itemize}
+
+\section*{C2. Extracto del trigger para \texttt{suscriptor} que implementa la 
+sentencia \texttt{insert}}
+\textbf{Francisco Pablo Rodrigo}
+\begin{itemize}
+  \item \texttt{s-03-rfp-suscriptor-n1-trigger.sql}
+  \lstinputlisting[language=SQL,firstline=12,lastline=66]
+  {\codedir/s-03-rfp-suscriptor-n1-trigger.sql}
+
+  \item \texttt{s-03-rfp-suscriptor-n2-trigger.sql}
+  \lstinputlisting[language=SQL,firstline=12,lastline=68]
+  {\codedir/s-03-rfp-suscriptor-n2-trigger.sql}
+\end{itemize}
+
+\section*{C3. Extracto del trigger para \texttt{pago\_suscriptor} que 
+implementa la sentencia \texttt{insert}}
+
+\textbf{Flores Martinez Emanuel}
+\begin{itemize}
+  \item \texttt{s-03-rfp-pago-suscriptor-n1-trigger.sql}
+  \lstinputlisting[language=SQL,firstline=12,lastline=41]
+  {\codedir/s-03-rfp-pago-suscriptor-n1-trigger.sql}
+
+  \item \texttt{s-03-rfp-pago-suscriptor-n2-trigger.sql}
+  \lstinputlisting[language=SQL,firstline=12,lastline=41]
+  {\codedir/s-03-rfp-pago-suscriptor-n2-trigger.sql}
+\end{itemize}
+
+\section*{C4. Extracto del trigger para \texttt{articulo} que 
+implementa la sentencia \texttt{insert}}
+
+\textbf{Francisco Pablo Rodrigo}
+\begin{itemize}
+  \item \texttt{s-03-rfp-articulo-n1-trigger.sql}
+  \lstinputlisting[language=SQL,firstline=14,lastline=27]
+  {\codedir/s-03-rfp-articulo-n1-trigger.sql}
+
+  \item \texttt{s-03-rfp-articulo-n2-trigger.sql}
+  \lstinputlisting[language=SQL,firstline=14,lastline=29]
+  {\codedir/s-03-rfp-articulo-n2-trigger.sql}
+\end{itemize}
+
+\section*{C5. Salida del Validador.}
+
+\begin{itemize}
+  \item \textbf{Salida de Francisco Pablo Rodrigo}
+    \lstinputlisting[language=SQL,firstline=51,lastline=106,
+    basicstyle=\scriptsize] {\codedir/validador.txt}
+    \lstinputlisting[language=SQL,firstline=129,basicstyle=\scriptsize]
+    {\codedir/validador.txt}
+\end{itemize}
+
+\section*{Comentarios y conclusiones}
+
+En esta práctica aprendimos cómo utilizar \texttt{Instead of DML Triggers},
+un ente de la base de datos Oracle que nos permitió atrapar inserciones,
+actualizaciones y eliminaciones de las vistas globales y redireccionar su
+ejecución al fragmento del sitio correspondiente.\\
+
+Así mismo, reconocimos la importancia de la programación como parte del
+desarrollo de software distribuido ya que no hay una herramienta que realice la
+distribución de nuestra base de datos y proporcione transparencia de
+distribución. Es importante resaltar la importancia de las buenas prácticas y
+del código comentado, de lo contrario es fácil perderse a la hora de realizar
+los triggers que van a servir para mantener nuestros datos consistentes.
+
+\renewcommand\refname{Bibliografía}
+\begin{thebibliography}{99}
+    \bibitem{oracle} Oracle. \textit{Oracle Database Documentation} en 
+        \texttt{https://docs.oracle.com/en/database/oracle/\\oracle-database/%
+        index.html}
+    \bibitem{oracledb} Oracle Database. \textit{Database PL/SQL Language 
+        Reference} en 
+        \texttt{https://docs.oracle.com/en/database/oracle/\\
+        oracle-database/12.2/lnpls/database-pl-sql-language-reference.pdf}
+\end{thebibliography}
+
+\end{document}

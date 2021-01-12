@@ -1,0 +1,184 @@
+idle> @s-06-validador-main.sql
+=========================================================
+Iniciando validador - Practica 8
+Presionar Enter si los valores configurados son correctos.
+De lo contario editar el script s-06-validador-main.sql
+O en su defecto proporcionar nuevos valores
+=========================================================
+Proporcionar el nombre de usuario [editorial_bdd]: 
+Proporcionar el password del usuario editorial_bdd [editorial_bdd]: 
+Proporcionar el password de sys [Configurado en script]: 
+Proporcionar el nombre de la pdb 1 : [rfpbd_s1]: 
+Proporcionar el nombre de la pdb 2 : [rfpbd_s2]: 
+1. ===> Creando archivos binarios de prueba
+
+
+
+
+
+
+
+2. ===> Creando objeto directory  en rfpbd_s1 llamado bdd_p8_dir
+Connected.
+
+                                                                                
+3. ===> Creando objeto directory  en rfpbd_s2 llamado bdd_p8_dir
+Connected.
+
+                                                                                
+conectando a rfpbd_s1
+Connected.
+
+                                                                                
+Validando respuestas en rfpbd_s1
+Creando procedimientos para validar.
+No errors.
+No errors.
+No errors.
+No errors.
+No errors.
+No errors.
+No errors.
+No errors.
+No errors.
+No errors.
+No errors.
+No errors.
+No errors.
+No errors.
+No errors.
+No errors.
+===============================================                                                                                                                                                         
+Iniciando proceso de validacion de respuestas                                                                                                                                                           
+Incluir en el reporte a partir de este punto                                                                                                                                                            
+===============================================                                                                                                                                                         
+SESSION_TIME:	11/01/2021 18:04:57
+USR_COD HOST:	906224
+OS_USER:	rodrigo
+BD_USER:	EDITORIAL_BDD
+CON_NAME:	RFPBD_S1                                                                                       
+
+2021-01-11 18:04:57.156-906224-PO.R001R.O001E.O001 ==> OK Validando tablas                                                                                                                              
+2021-01-11 18:04:57.216-906224-CS.O002F.S002D.S002 ==> OK  Validacion de tablas globales                                                                                                                
+2021-01-11 18:04:57.217-906224-0U.D003P.U003I.U003 ==> OK Validando delete completo al inicio                                                                                                           
+2021-01-11 18:04:57.431-906224-RH.R004B.H004T.H004 ==> OK  Registros para pais_1:             0                                                                                                         
+2021-01-11 18:04:57.432-906224-FQ.I005D.Q005O.Q005 ==> OK  Registros para pais_2:             0                                                                                                         
+2021-01-11 18:04:57.433-906224-PO.G0060.O006R.O006 ==> OK  Registros para suscriptor_1:       0                                                                                                         
+2021-01-11 18:04:57.433-906224-0R.O007S.R007I.R007 ==> OK  Registros para suscriptor_2:       0                                                                                                         
+2021-01-11 18:04:57.435-906224-FY.R0081.Y008A.Y008 ==> OK  Registros para suscriptor_3:       0                                                                                                         
+2021-01-11 18:04:57.437-906224-IH.O009R.H009L.H009 ==> OK  Registros para suscriptor_4:       0                                                                                                         
+2021-01-11 18:04:57.437-906224-0R.D010F.R0100.R010 ==> OK  Registros para articulo_1:         0                                                                                                         
+2021-01-11 18:04:57.438-906224-UE.R011P.E011B.E011 ==> OK  Registros para articulo_2:         0                                                                                                         
+2021-01-11 18:04:57.439-906224-NB.I012B.B012D.B012 ==> OK  Registros para pago_suscriptor_1:  0                                                                                                         
+2021-01-11 18:04:57.439-906224-AK.G013D.K013D.K013 ==> OK  Registros para pago_suscriptor_2:  0                                                                                                         
+2021-01-11 18:04:57.441-906224-ME.O0140.E014E.E014 ==> OK Limpieza correcta                                                                                                                             
+2021-01-11 18:04:57.442-906224-PE.R015S.E015D.E015 ==> OK Validando insert                                                                                                                              
+2021-01-11 18:04:57.990-906224-CO.O0161.O016I.O016 ==> OK  Registros para pais_1:            1                                                                                                          
+2021-01-11 18:04:57.992-906224-0R.D017R.R017T.R017 ==> OK  Registros para pais_2:            1                                                                                                          
+2021-01-11 18:04:57.993-906224-RT.R018F.T018O.T018 ==> OK  Registros para suscriptor_1:      3                                                                                                          
+2021-01-11 18:04:57.994-906224-FO.I019P.O019R.O019 ==> OK  Registros para suscriptor_2:      1                                                                                                          
+2021-01-11 18:04:57.996-906224-PU.G020B.U020I.U020 ==> OK  Registros para suscriptor_3:      1                                                                                                          
+2021-01-11 18:04:57.997-906224-0F.O021D.F021A.F021 ==> OK  Registros para suscriptor_4:      1                                                                                                          
+2021-01-11 18:04:57.998-906224-FA.R0220.A022L.A022 ==> OK  Registros para articulo_1:        2                                                                                                          
+2021-01-11 18:04:57.998-906224-IH.O023S.H0230.H023 ==> OK  Registros para articulo_2:        2                                                                                                          
+2021-01-11 18:04:57.999-906224-0U.D0241.U024B.U024 ==> OK  Registros para pago_suscriptor_1: 1                                                                                                          
+2021-01-11 18:04:58.000-906224-UC.R025R.C025D.C025 ==> OK  Registros para pago_suscriptor_2: 1                                                                                                          
+2021-01-11 18:04:58.001-906224-NO.I026F.O026D.O026 ==> OK Lista de registros correcta.                                                                                                                  
+2021-01-11 18:04:58.002-906224-AT.G027P.T027E.T027 ==> OK Validando update                                                                                                                              
+2021-01-11 18:04:58.026-906224-MF.O028B.F028D.F028 ==> OK Operacion update valida en pais                                                                                                               
+2021-01-11 18:04:58.028-906224-PK.R029D.K029I.K029 ==> OK Validando delete por registro                                                                                                                 
+2021-01-11 18:04:58.102-906224-CU.O0300.U030T.U030 ==> OK Eliminacion por registro.                                                                                                                     
+2021-01-11 18:04:58.110-906224-0Y.D031S.Y031O.Y031 ==> OK Validando Binarios                                                                                                                            
+2021-01-11 18:04:58.413-906224-RH.R0321.H032R.H032 ==> OK Longitud total de datos BLOB en pago_suscriptor: 7340032                                                                                      
+2021-01-11 18:04:58.414-906224-FT.I033R.T033I.T033 ==> OK Longitud total de datos BLOB en articulo: 3145728                                                                                             
+2021-01-11 18:04:58.414-906224-PA.G034F.A034A.A034 ==> OK Validando delete completo al final                                                                                                            
+2021-01-11 18:04:58.749-906224-0J.O035P.J035L.J035 ==> OK  Registros para pais_1:             0                                                                                                         
+2021-01-11 18:04:58.750-906224-FU.R036B.U0360.U036 ==> OK  Registros para pais_2:             0                                                                                                         
+2021-01-11 18:04:58.751-906224-IX.O037D.X037B.X037 ==> OK  Registros para suscriptor_1:       0                                                                                                         
+2021-01-11 18:04:58.751-906224-0R.D0380.R038D.R038 ==> OK  Registros para suscriptor_2:       0                                                                                                         
+2021-01-11 18:04:58.752-906224-UT.R039S.T039D.T039 ==> OK  Registros para suscriptor_3:       0                                                                                                         
+2021-01-11 18:04:58.753-906224-NM.I0401.M040E.M040 ==> OK  Registros para suscriptor_4:       0                                                                                                         
+2021-01-11 18:04:58.754-906224-AE.G041R.E041D.E041 ==> OK  Registros para articulo_1:         0                                                                                                         
+2021-01-11 18:04:58.755-906224-MC.O042F.C042I.C042 ==> OK  Registros para articulo_2:         0                                                                                                         
+2021-01-11 18:04:58.756-906224-PY.R043P.Y043T.Y043 ==> OK  Registros para pago_suscriptor_1:  0                                                                                                         
+2021-01-11 18:04:58.756-906224-CT.O044B.T044O.T044 ==> OK  Registros para pago_suscriptor_2:  0                                                                                                         
+2021-01-11 18:04:58.757-906224-0Y.D045D.Y045R.Y045 ==> OK Limpieza correcta                                                                                                                             
+2021-01-11 18:04:58.758-906224-RH.R0460.H046I.H046 ==> OK Validacion concluida                                                                                                                          
+conectando a rfpbd_s2
+Connected.
+
+                                                                                                                                                                                                        
+Validando respuestas en rfpbd_s2
+Creando procedimientos para validar.
+No errors.
+No errors.
+No errors.
+No errors.
+No errors.
+No errors.
+No errors.
+No errors.
+No errors.
+No errors.
+No errors.
+No errors.
+No errors.
+No errors.
+No errors.
+No errors.
+===============================================                                                                                                                                                         
+Iniciando proceso de validacion de respuestas                                                                                                                                                           
+Incluir en el reporte a partir de este punto                                                                                                                                                            
+===============================================                                                                                                                                                         
+SESSION_TIME:	11/01/2021 18:04:59
+USR_COD HOST:	906224
+OS_USER:	rodrigo
+BD_USER:	EDITORIAL_BDD
+CON_NAME:	RFPBD_S2                                                                                       
+
+2021-01-11 18:04:59.755-906224-PR.R001R.R001E.R001 ==> OK Validando tablas                                                                                                                              
+2021-01-11 18:04:59.808-906224-CM.O002F.M002D.M002 ==> OK  Validacion de tablas globales                                                                                                                
+2021-01-11 18:04:59.809-906224-0G.D003P.G003I.G003 ==> OK Validando delete completo al inicio                                                                                                           
+2021-01-11 18:04:59.983-906224-RS.R004B.S004T.S004 ==> OK  Registros para pais_1:             0                                                                                                         
+2021-01-11 18:04:59.984-906224-FJ.I005D.J005O.J005 ==> OK  Registros para pais_2:             0                                                                                                         
+2021-01-11 18:04:59.984-906224-PM.G0060.M006R.M006 ==> OK  Registros para suscriptor_1:       0                                                                                                         
+2021-01-11 18:04:59.985-906224-0O.O007S.O007I.O007 ==> OK  Registros para suscriptor_2:       0                                                                                                         
+2021-01-11 18:04:59.986-906224-FL.R0082.L008A.L008 ==> OK  Registros para suscriptor_3:       0                                                                                                         
+2021-01-11 18:04:59.988-906224-IO.O009R.O009L.O009 ==> OK  Registros para suscriptor_4:       0                                                                                                         
+2021-01-11 18:04:59.989-906224-0P.D010F.P0100.P010 ==> OK  Registros para articulo_1:         0                                                                                                         
+2021-01-11 18:04:59.990-906224-UU.R011P.U011B.U011 ==> OK  Registros para articulo_2:         0                                                                                                         
+2021-01-11 18:04:59.990-906224-NU.I012B.U012D.U012 ==> OK  Registros para pago_suscriptor_1:  0                                                                                                         
+2021-01-11 18:04:59.991-906224-AK.G013D.K013D.K013 ==> OK  Registros para pago_suscriptor_2:  0                                                                                                         
+2021-01-11 18:04:59.992-906224-MN.O0140.N014E.N014 ==> OK Limpieza correcta                                                                                                                             
+2021-01-11 18:04:59.992-906224-PU.R015S.U015D.U015 ==> OK Validando insert                                                                                                                              
+2021-01-11 18:05:00.378-906224-CH.O0162.H016I.H016 ==> OK  Registros para pais_1:            1                                                                                                          
+2021-01-11 18:05:00.379-906224-0M.D017R.M017T.M017 ==> OK  Registros para pais_2:            1                                                                                                          
+2021-01-11 18:05:00.380-906224-RZ.R018F.Z018O.Z018 ==> OK  Registros para suscriptor_1:      3                                                                                                          
+2021-01-11 18:05:00.381-906224-FR.I019P.R019R.R019 ==> OK  Registros para suscriptor_2:      1                                                                                                          
+2021-01-11 18:05:00.382-906224-PB.G020B.B020I.B020 ==> OK  Registros para suscriptor_3:      1                                                                                                          
+2021-01-11 18:05:00.383-906224-0I.O021D.I021A.I021 ==> OK  Registros para suscriptor_4:      1                                                                                                          
+2021-01-11 18:05:00.383-906224-FK.R0220.K022L.K022 ==> OK  Registros para articulo_1:        2                                                                                                          
+2021-01-11 18:05:00.384-906224-IK.O023S.K0230.K023 ==> OK  Registros para articulo_2:        2                                                                                                          
+2021-01-11 18:05:00.385-906224-0M.D0242.M024B.M024 ==> OK  Registros para pago_suscriptor_1: 1                                                                                                          
+2021-01-11 18:05:00.386-906224-UO.R025R.O025D.O025 ==> OK  Registros para pago_suscriptor_2: 1                                                                                                          
+2021-01-11 18:05:00.387-906224-NS.I026F.S026D.S026 ==> OK Lista de registros correcta.                                                                                                                  
+2021-01-11 18:05:00.387-906224-AC.G027P.C027E.C027 ==> OK Validando update                                                                                                                              
+2021-01-11 18:05:00.404-906224-MG.O028B.G028D.G028 ==> OK Operacion update valida en pais                                                                                                               
+2021-01-11 18:05:00.405-906224-PG.R029D.G029I.G029 ==> OK Validando delete por registro                                                                                                                 
+2021-01-11 18:05:00.472-906224-CF.O0300.F030T.F030 ==> OK Eliminacion por registro.                                                                                                                     
+2021-01-11 18:05:00.480-906224-0U.D031S.U031O.U031 ==> OK Validando Binarios                                                                                                                            
+2021-01-11 18:05:00.607-906224-RF.R0322.F032R.F032 ==> OK Longitud total de datos BLOB en pago_suscriptor: 7340032                                                                                      
+2021-01-11 18:05:00.608-906224-FL.I033R.L033I.L033 ==> OK Longitud total de datos BLOB en articulo: 3145728                                                                                             
+2021-01-11 18:05:00.609-906224-PJ.G034F.J034A.J034 ==> OK Validando delete completo al final                                                                                                            
+2021-01-11 18:05:00.750-906224-0Y.O035P.Y035L.Y035 ==> OK  Registros para pais_1:             0                                                                                                         
+2021-01-11 18:05:00.751-906224-FG.R036B.G0360.G036 ==> OK  Registros para pais_2:             0                                                                                                         
+2021-01-11 18:05:00.752-906224-IG.O037D.G037B.G037 ==> OK  Registros para suscriptor_1:       0                                                                                                         
+2021-01-11 18:05:00.752-906224-0V.D0380.V038D.V038 ==> OK  Registros para suscriptor_2:       0                                                                                                         
+2021-01-11 18:05:00.753-906224-UX.R039S.X039D.X039 ==> OK  Registros para suscriptor_3:       0                                                                                                         
+2021-01-11 18:05:00.754-906224-NZ.I0402.Z040E.Z040 ==> OK  Registros para suscriptor_4:       0                                                                                                         
+2021-01-11 18:05:00.755-906224-AP.G041R.P041D.P041 ==> OK  Registros para articulo_1:         0                                                                                                         
+2021-01-11 18:05:00.756-906224-MW.O042F.W042I.W042 ==> OK  Registros para articulo_2:         0                                                                                                         
+2021-01-11 18:05:00.757-906224-PE.R043P.E043T.E043 ==> OK  Registros para pago_suscriptor_1:  0                                                                                                         
+2021-01-11 18:05:00.757-906224-CB.O044B.B044O.B044 ==> OK  Registros para pago_suscriptor_2:  0                                                                                                         
+2021-01-11 18:05:00.758-906224-0V.D045D.V045R.V045 ==> OK Limpieza correcta                                                                                                                             
+2021-01-11 18:05:00.759-906224-RC.R0460.C046I.C046 ==> OK Validacion concluida                                                                                                                          
