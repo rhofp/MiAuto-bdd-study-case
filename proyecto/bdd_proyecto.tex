@@ -169,7 +169,7 @@
   Francisco Pablo \textsc{Rodrigo} \\ 
   Flores Martinez \textsc{Emanuel}   
 }
-\newcommand{\actividad}{Práctica Final}
+\newcommand{\actividad}{Proyecto Final}
 \newcommand{\titulo}{BDD empleada para administrar ventas de autos}
 
 \newcommand{\fechaEntrega}{}
@@ -268,5 +268,152 @@
 \section*{Tabla de fragmentación}
 
 \input{bdd_proyecto-frags}
+
+\section*{Creación de fragmentos}
+
+\newcounter{constraintCounter}
+
+{
+  \setlength\tabcolsep{3.5mm}
+  \def\arraystretch{2}          % Do not define globally (for that reason we
+                                % enclose table inside brackets)
+  \begin{longtable}{
+    |C{0.05\linewidth}
+    |p{0.35\linewidth}
+    |C{0.35\linewidth}
+    |p{0.1\linewidth}|}
+  \hline
+  %%%%% Start: Table header 
+    \textbf{Núm.} &
+  \textbf{Nombre de la tabla padre} & 
+  \textbf{Nombre de la tabla hija} & 
+  \textbf{Sitio}
+  \\ \hline
+  %%%%% End: Table header 
+  %
+  % row 1
+  \stepcounter{constraintCounter} \arabic{constraintCounter} &
+  \fragNameBuilder{\pais}{F1}{\snI}& 
+  \fragNameBuilder{\sucursal}{F1}{\snI}& 
+  \snI 
+  \\ \hline
+  %
+  % row 2
+  \stepcounter{constraintCounter} \arabic{constraintCounter} &
+  \fragNameBuilder{\sucursal}{F1}{\snI}& 
+  \fragNameBuilder{\auto}{F1}{\snI}& 
+  \snI 
+  \\ \hline
+  %
+  % row 3
+  \stepcounter{constraintCounter} \arabic{constraintCounter} &
+  \sauto& 
+  \fragNameBuilder{\auto}{F1}{\snI}& 
+  \snI 
+  \\ \hline
+  %
+  % row 4
+  \stepcounter{constraintCounter} \arabic{constraintCounter} &
+  \fragNameBuilder{\modelo}{R}{\snI}& 
+  \fragNameBuilder{\auto}{F1}{\snI}& 
+  \snI 
+  \\ \hline
+  %
+  % row 5
+  \stepcounter{constraintCounter} \arabic{constraintCounter} &
+  \fragNameBuilder{\marca}{R}{\snI}& 
+  \fragNameBuilder{\modelo}{R}{\snI}& 
+  \snI 
+  \\ \hline
+  %
+  % row 6
+  \stepcounter{constraintCounter} \arabic{constraintCounter} &
+  \fragNameBuilder{\auto}{F1}{\snI}& 
+  \fragNameBuilder{\pagoa}{F1}{\snI}& 
+  \snI 
+  \\ \hline
+  %
+  % row 7
+  \stepcounter{constraintCounter} \arabic{constraintCounter} &
+  \fragNameBuilder{\pais}{F2}{\snII}& 
+  \fragNameBuilder{\sucursal}{F2}{\snII}& 
+  \snII 
+  \\ \hline
+  %
+  % row 8
+  \stepcounter{constraintCounter} \arabic{constraintCounter} &
+  \fragNameBuilder{\sucursal}{F2}{\snII}& 
+  \fragNameBuilder{\auto}{F2}{\snII}& 
+  \snII 
+  \\ \hline
+  %
+  % row 9
+  \stepcounter{constraintCounter} \arabic{constraintCounter} &
+  \fragNameBuilder{\auto}{F2}{\snII}& 
+  \fragNameBuilder{\pagoa}{F2}{\snII}& 
+  \snII 
+  \\ \hline
+  %
+  % row 10
+  \stepcounter{constraintCounter} \arabic{constraintCounter} &
+  \sauto& 
+  \fragNameBuilder{\auto}{F2}{\snII}& 
+  \snII 
+  \\ \hline
+  %
+  % row 11
+  \stepcounter{constraintCounter} \arabic{constraintCounter} &
+  \fragNameBuilder{\modelo}{R}{\snII}& 
+  \fragNameBuilder{\auto}{F2}{\snII}& 
+  \snII 
+  \\ \hline
+  %
+  % row 12
+  \stepcounter{constraintCounter} \arabic{constraintCounter} &
+  \fragNameBuilder{\marca}{R}{\snII}& 
+  \fragNameBuilder{\modelo}{R}{\snII}& 
+  \snII 
+  \\ \hline
+  %
+  % row 13
+  \stepcounter{constraintCounter} \arabic{constraintCounter} &
+  \fragNameBuilder{\marca}{R}{\snIII}& 
+  \fragNameBuilder{\modelo}{R}{\snIII}& 
+  \snIII 
+  \\ \hline
+  %
+  % row 14
+  \stepcounter{constraintCounter} \arabic{constraintCounter} &
+  \sauto& 
+  \fragNameBuilder{\historico}{F1}{\snIII}& 
+  \snIII 
+  \\ \hline
+  %
+  % row 15
+  \stepcounter{constraintCounter} \arabic{constraintCounter} &
+  \fragNameBuilder{\marca}{R}{\snIV}& 
+  \fragNameBuilder{\modelo}{R}{\snIV}& 
+  \snIV
+  \\ \hline
+  %
+  % row 16
+  \stepcounter{constraintCounter} \arabic{constraintCounter} &
+  \sauto& 
+  \fragNameBuilder{\historico}{F2}{\snIV}& 
+  \snIV
+  \\ \hline
+  %
+  % row 17
+  \stepcounter{constraintCounter} \arabic{constraintCounter} &
+  \fragNameBuilder{\auto}{F3}{\snIV}& 
+  \fragNameBuilder{\historico}{F2}{\snIV}& 
+  \snIV 
+  \\ \hline
+  %
+
+  \end{longtable}
+}
+
+
 
 \end{document}
