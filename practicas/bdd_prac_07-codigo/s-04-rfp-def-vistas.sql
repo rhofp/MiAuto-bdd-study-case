@@ -18,7 +18,7 @@ from (
 create or replace view suscriptor as 
 select q2.suscriptor_id, 
 q2.nombre, q2.ap_paterno, q2.ap_materno, q2.fecha_inscripcion,
-q2.num_tarjeta
+q2.num_tarjeta,q2.pais_id
 from (
   select s1.suscriptor_id,num_tarjeta,nombre, ap_paterno, ap_materno, 
     fecha_inscripcion, pais_id 
