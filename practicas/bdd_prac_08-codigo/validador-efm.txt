@@ -1,0 +1,184 @@
+idle> start s-06-validador-main.sql
+=========================================================
+Iniciando validador - Práctica 8
+Presionar Enter si los valores configurados son correctos.
+De lo contario editar el script s-06-validador-main.sql
+O en su defecto proporcionar nuevos valores
+=========================================================
+Proporcionar el nombre de usuario [editorial_bdd]: 
+Proporcionar el password del usuario editorial_bdd [editorial_bdd]: 
+Proporcionar el password de sys [Configurado en script]: 
+Proporcionar el nombre de la pdb 1 : [efmbd_s1]: 
+Proporcionar el nombre de la pdb 2 : [efmbd_s2]: 
+1. ===> Creando archivos binarios de prueba
+
+
+
+
+
+
+
+2. ===> Creando objeto directory  en efmbd_s1 llamado bdd_p8_dir
+Connected.
+
+
+3. ===> Creando objeto directory  en efmbd_s2 llamado bdd_p8_dir
+Connected.
+
+
+conectando a efmbd_s1
+Connected.
+
+
+Validando respuestas en efmbd_s1
+Creando procedimientos para validar.
+No errors.
+No errors.
+No errors.
+No errors.
+No errors.
+No errors.
+No errors.
+No errors.
+No errors.
+No errors.
+No errors.
+No errors.
+No errors.
+No errors.
+No errors.
+No errors.
+===============================================
+Iniciando proceso de validación de respuestas
+Incluir en el reporte a partir de este punto
+===============================================
+SESSION_TIME:	16/01/2021 17:33:07
+USR_COD HOST:	11579
+OS_USER:	emanuel
+BD_USER:	EDITORIAL_BDD
+CON_NAME:	EFMBD_S1
+
+2021-01-16 17:33:08.028-11579-PF.E001E.F001E.F001 ==> OK Validando tablas
+2021-01-16 17:33:08.084-11579-CJ.M002F.J002D.J002 ==> OK  Validacion de tablas globales
+2021-01-16 17:33:08.085-11579-0W.A003M.W003I.W003 ==> OK Validando delete completo al inicio
+2021-01-16 17:33:08.363-11579-EB.N004B.B004T.B004 ==> OK  Registros para pais_1:             0
+2021-01-16 17:33:08.410-11579-FV.U005D.V005O.V005 ==> OK  Registros para pais_2:             0
+2021-01-16 17:33:08.410-11579-MK.E0060.K006R.K006 ==> OK  Registros para suscriptor_1:       0
+2021-01-16 17:33:08.411-11579-0B.L007S.B007I.B007 ==> OK  Registros para suscriptor_2:       0
+2021-01-16 17:33:08.412-11579-FQ.E0081.Q008A.Q008 ==> OK  Registros para suscriptor_3:       0
+2021-01-16 17:33:08.414-11579-IZ.M009E.Z009L.Z009 ==> OK  Registros para suscriptor_4:       0
+2021-01-16 17:33:08.415-11579-0U.A010F.U0100.U010 ==> OK  Registros para articulo_1:         0
+2021-01-16 17:33:08.416-11579-UK.N011M.K011B.K011 ==> OK  Registros para articulo_2:         0
+2021-01-16 17:33:08.416-11579-NZ.U012B.Z012D.Z012 ==> OK  Registros para pago_suscriptor_1:  0
+2021-01-16 17:33:08.417-11579-AP.E013D.P013D.P013 ==> OK  Registros para pago_suscriptor_2:  0
+2021-01-16 17:33:08.418-11579-MK.L0140.K014E.K014 ==> OK Limpieza correcta
+2021-01-16 17:33:08.418-11579-PS.E015S.S015D.S015 ==> OK Validando insert
+2021-01-16 17:33:08.908-11579-CI.M0161.I016I.I016 ==> OK  Registros para pais_1:            1
+2021-01-16 17:33:08.909-11579-0D.A017E.D017T.D017 ==> OK  Registros para pais_2:            1
+2021-01-16 17:33:08.910-11579-EX.N018F.X018O.X018 ==> OK  Registros para suscriptor_1:      3
+2021-01-16 17:33:08.910-11579-FB.U019M.B019R.B019 ==> OK  Registros para suscriptor_2:      1
+2021-01-16 17:33:08.911-11579-MJ.E020B.J020I.J020 ==> OK  Registros para suscriptor_3:      1
+2021-01-16 17:33:08.912-11579-0G.L021D.G021A.G021 ==> OK  Registros para suscriptor_4:      1
+2021-01-16 17:33:08.913-11579-FC.E0220.C022L.C022 ==> OK  Registros para articulo_1:        2
+2021-01-16 17:33:08.914-11579-IO.M023S.O0230.O023 ==> OK  Registros para articulo_2:        2
+2021-01-16 17:33:08.915-11579-0V.A0241.V024B.V024 ==> OK  Registros para pago_suscriptor_1: 1
+2021-01-16 17:33:08.916-11579-UP.N025E.P025D.P025 ==> OK  Registros para pago_suscriptor_2: 1
+2021-01-16 17:33:08.917-11579-NF.U026F.F026D.F026 ==> OK Lista de registros correcta.
+2021-01-16 17:33:08.917-11579-AT.E027M.T027E.T027 ==> OK Validando update
+2021-01-16 17:33:08.937-11579-ME.L028B.E028D.E028 ==> OK Operacion update valida en pais
+2021-01-16 17:33:08.939-11579-PE.E029D.E029I.E029 ==> OK Validando delete por registro
+2021-01-16 17:33:09.004-11579-CS.M0300.S030T.S030 ==> OK Eliminacion por registro.
+2021-01-16 17:33:09.017-11579-0T.A031S.T031O.T031 ==> OK Validando Binarios
+2021-01-16 17:33:09.341-11579-EO.N0321.O032R.O032 ==> OK Longitud total de datos BLOB en pago_suscriptor: 7340032
+2021-01-16 17:33:09.342-11579-FI.U033E.I033I.I033 ==> OK Longitud total de datos BLOB en articulo: 3145728
+2021-01-16 17:33:09.343-11579-ME.E034F.E034A.E034 ==> OK Validando delete completo al final
+2021-01-16 17:33:09.667-11579-0E.L035M.E035L.E035 ==> OK  Registros para pais_1:             0
+2021-01-16 17:33:09.668-11579-FA.E036B.A0360.A036 ==> OK  Registros para pais_2:             0
+2021-01-16 17:33:09.669-11579-IV.M037D.V037B.V037 ==> OK  Registros para suscriptor_1:       0
+2021-01-16 17:33:09.670-11579-0O.A0380.O038D.O038 ==> OK  Registros para suscriptor_2:       0
+2021-01-16 17:33:09.670-11579-UN.N039S.N039D.N039 ==> OK  Registros para suscriptor_3:       0
+2021-01-16 17:33:09.671-11579-NX.U0401.X040E.X040 ==> OK  Registros para suscriptor_4:       0
+2021-01-16 17:33:09.674-11579-AJ.E041E.J041D.J041 ==> OK  Registros para articulo_1:         0
+2021-01-16 17:33:09.675-11579-MZ.L042F.Z042I.Z042 ==> OK  Registros para articulo_2:         0
+2021-01-16 17:33:09.676-11579-PV.E043M.V043T.V043 ==> OK  Registros para pago_suscriptor_1:  0
+2021-01-16 17:33:09.677-11579-CN.M044B.N044O.N044 ==> OK  Registros para pago_suscriptor_2:  0
+2021-01-16 17:33:09.677-11579-0U.A045D.U045R.U045 ==> OK Limpieza correcta
+2021-01-16 17:33:09.678-11579-EE.N0460.E046I.E046 ==> OK Validación concluida
+conectando a efmbd_s2
+Connected.
+
+
+Validando respuestas en efmbd_s2
+Creando procedimientos para validar.
+No errors.
+No errors.
+No errors.
+No errors.
+No errors.
+No errors.
+No errors.
+No errors.
+No errors.
+No errors.
+No errors.
+No errors.
+No errors.
+No errors.
+No errors.
+No errors.
+===============================================
+Iniciando proceso de validación de respuestas
+Incluir en el reporte a partir de este punto
+===============================================
+SESSION_TIME:	16/01/2021 17:33:10
+USR_COD HOST:	11579
+OS_USER:	emanuel
+BD_USER:	EDITORIAL_BDD
+CON_NAME:	EFMBD_S2
+
+2021-01-16 17:33:10.708-11579-PC.E001E.C001E.C001 ==> OK Validando tablas
+2021-01-16 17:33:10.761-11579-CC.M002F.C002D.C002 ==> OK  Validacion de tablas globales
+2021-01-16 17:33:10.762-11579-0J.A003M.J003I.J003 ==> OK Validando delete completo al inicio
+2021-01-16 17:33:10.954-11579-ES.N004B.S004T.S004 ==> OK  Registros para pais_1:             0
+2021-01-16 17:33:10.955-11579-FR.U005D.R005O.R005 ==> OK  Registros para pais_2:             0
+2021-01-16 17:33:10.956-11579-MK.E0060.K006R.K006 ==> OK  Registros para suscriptor_1:       0
+2021-01-16 17:33:10.956-11579-0S.L007S.S007I.S007 ==> OK  Registros para suscriptor_2:       0
+2021-01-16 17:33:10.958-11579-FK.E0082.K008A.K008 ==> OK  Registros para suscriptor_3:       0
+2021-01-16 17:33:10.960-11579-IU.M009E.U009L.U009 ==> OK  Registros para suscriptor_4:       0
+2021-01-16 17:33:10.961-11579-0O.A010F.O0100.O010 ==> OK  Registros para articulo_1:         0
+2021-01-16 17:33:10.961-11579-UL.N011M.L011B.L011 ==> OK  Registros para articulo_2:         0
+2021-01-16 17:33:10.962-11579-NW.U012B.W012D.W012 ==> OK  Registros para pago_suscriptor_1:  0
+2021-01-16 17:33:10.963-11579-AC.E013D.C013D.C013 ==> OK  Registros para pago_suscriptor_2:  0
+2021-01-16 17:33:10.963-11579-MG.L0140.G014E.G014 ==> OK Limpieza correcta
+2021-01-16 17:33:10.964-11579-PG.E015S.G015D.G015 ==> OK Validando insert
+2021-01-16 17:33:11.311-11579-CC.M0162.C016I.C016 ==> OK  Registros para pais_1:            1
+2021-01-16 17:33:11.312-11579-0C.A017E.C017T.C017 ==> OK  Registros para pais_2:            1
+2021-01-16 17:33:11.313-11579-EQ.N018F.Q018O.Q018 ==> OK  Registros para suscriptor_1:      3
+2021-01-16 17:33:11.313-11579-FK.U019M.K019R.K019 ==> OK  Registros para suscriptor_2:      1
+2021-01-16 17:33:11.314-11579-MN.E020B.N020I.N020 ==> OK  Registros para suscriptor_3:      1
+2021-01-16 17:33:11.315-11579-0Q.L021D.Q021A.Q021 ==> OK  Registros para suscriptor_4:      1
+2021-01-16 17:33:11.316-11579-FV.E0220.V022L.V022 ==> OK  Registros para articulo_1:        2
+2021-01-16 17:33:11.316-11579-ID.M023S.D0230.D023 ==> OK  Registros para articulo_2:        2
+2021-01-16 17:33:11.317-11579-0X.A0242.X024B.X024 ==> OK  Registros para pago_suscriptor_1: 1
+2021-01-16 17:33:11.318-11579-UA.N025E.A025D.A025 ==> OK  Registros para pago_suscriptor_2: 1
+2021-01-16 17:33:11.319-11579-NC.U026F.C026D.C026 ==> OK Lista de registros correcta.
+2021-01-16 17:33:11.319-11579-AK.E027M.K027E.K027 ==> OK Validando update
+2021-01-16 17:33:11.334-11579-ME.L028B.E028D.E028 ==> OK Operacion update valida en pais
+2021-01-16 17:33:11.335-11579-PX.E029D.X029I.X029 ==> OK Validando delete por registro
+2021-01-16 17:33:11.410-11579-CX.M0300.X030T.X030 ==> OK Eliminacion por registro.
+2021-01-16 17:33:11.418-11579-0W.A031S.W031O.W031 ==> OK Validando Binarios
+2021-01-16 17:33:11.516-11579-ER.N0322.R032R.R032 ==> OK Longitud total de datos BLOB en pago_suscriptor: 7340032
+2021-01-16 17:33:11.517-11579-FZ.U033E.Z033I.Z033 ==> OK Longitud total de datos BLOB en articulo: 3145728
+2021-01-16 17:33:11.518-11579-MW.E034F.W034A.W034 ==> OK Validando delete completo al final
+2021-01-16 17:33:11.692-11579-0M.L035M.M035L.M035 ==> OK  Registros para pais_1:             0
+2021-01-16 17:33:11.693-11579-FL.E036B.L0360.L036 ==> OK  Registros para pais_2:             0
+2021-01-16 17:33:11.694-11579-IW.M037D.W037B.W037 ==> OK  Registros para suscriptor_1:       0
+2021-01-16 17:33:11.694-11579-0B.A0380.B038D.B038 ==> OK  Registros para suscriptor_2:       0
+2021-01-16 17:33:11.695-11579-UD.N039S.D039D.D039 ==> OK  Registros para suscriptor_3:       0
+2021-01-16 17:33:11.696-11579-NU.U0402.U040E.U040 ==> OK  Registros para suscriptor_4:       0
+2021-01-16 17:33:11.697-11579-AU.E041E.U041D.U041 ==> OK  Registros para articulo_1:         0
+2021-01-16 17:33:11.698-11579-ME.L042F.E042I.E042 ==> OK  Registros para articulo_2:         0
+2021-01-16 17:33:11.698-11579-PN.E043M.N043T.N043 ==> OK  Registros para pago_suscriptor_1:  0
+2021-01-16 17:33:11.699-11579-CN.M044B.N044O.N044 ==> OK  Registros para pago_suscriptor_2:  0
+2021-01-16 17:33:11.700-11579-0P.A045D.P045R.P045 ==> OK Limpieza correcta
+2021-01-16 17:33:11.701-11579-EL.N0460.L046I.L046 ==> OK Validación concluida
