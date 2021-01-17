@@ -49,7 +49,7 @@ No errors.
 No errors.
 No errors.
 ===============================================
-Iniciando proceso de validación de respuestas
+Iniciando proceso de validacion de respuestas
 Incluir en el reporte a partir de este punto
 ===============================================
 SESSION_TIME:	16/01/2021 17:33:07
@@ -103,7 +103,7 @@ CON_NAME:	EFMBD_S1
 2021-01-16 17:33:09.676-11579-PV.E043M.V043T.V043 ==> OK  Registros para pago_suscriptor_1:  0
 2021-01-16 17:33:09.677-11579-CN.M044B.N044O.N044 ==> OK  Registros para pago_suscriptor_2:  0
 2021-01-16 17:33:09.677-11579-0U.A045D.U045R.U045 ==> OK Limpieza correcta
-2021-01-16 17:33:09.678-11579-EE.N0460.E046I.E046 ==> OK Validación concluida
+2021-01-16 17:33:09.678-11579-EE.N0460.E046I.E046 ==> OK Validacion concluida
 conectando a efmbd_s2
 Connected.
 
@@ -127,7 +127,7 @@ No errors.
 No errors.
 No errors.
 ===============================================
-Iniciando proceso de validación de respuestas
+Iniciando proceso de validacion de respuestas
 Incluir en el reporte a partir de este punto
 ===============================================
 SESSION_TIME:	16/01/2021 17:33:10
@@ -181,4 +181,4 @@ CON_NAME:	EFMBD_S2
 2021-01-16 17:33:11.698-11579-PN.E043M.N043T.N043 ==> OK  Registros para pago_suscriptor_1:  0
 2021-01-16 17:33:11.699-11579-CN.M044B.N044O.N044 ==> OK  Registros para pago_suscriptor_2:  0
 2021-01-16 17:33:11.700-11579-0P.A045D.P045R.P045 ==> OK Limpieza correcta
-2021-01-16 17:33:11.701-11579-EL.N0460.L046I.L046 ==> OK Validación concluida
+2021-01-16 17:33:11.701-11579-EL.N0460.L046I.L046 ==> OK Validacion concluida
