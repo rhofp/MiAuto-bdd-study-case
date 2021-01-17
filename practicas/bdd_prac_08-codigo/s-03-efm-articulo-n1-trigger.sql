@@ -1,6 +1,6 @@
---@Author:	    Emanuel Flores Martínez
---@Fecha creación:  16/01/2021
---@Descripción:     Trigger instead of para la vista articulo n1
+--@Author:	    Emanuel Flores Martinez
+--@Fecha creacion:  16/01/2021
+--@Descripcion:     Trigger instead of para la vista articulo n1
 
 create or replace trigger t_dml_articulo
 instead of insert or update or delete on articulo

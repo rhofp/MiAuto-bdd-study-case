@@ -1,6 +1,6 @@
---@Author:	    Emanuel Flores Martínez
---@Fecha creación:  14/01/2021
---@Descripción:     Privilegios de usuario 
+--@Author:	    Emanuel Flores Martinez
+--@Fecha creacion:  14/01/2021
+--@Descripcion:     Privilegios de usuario 
 
 prompt Conectandose a efmbd_s1 como usuario SYS
 connect sys@efmbd_s1 as sysdba

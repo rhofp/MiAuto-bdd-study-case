@@ -1,6 +1,6 @@
---@Author:	    Emanuel Flores Martínez
---@Fecha creación:  16/01/2021
---@Descripción:     Ejecución de triggers
+--@Author:	    Emanuel Flores Martinez
+--@Fecha creacion:  16/01/2021
+--@Descripcion:     Ejecucion de triggers
 
 whenever sqlerror exit rollback
 

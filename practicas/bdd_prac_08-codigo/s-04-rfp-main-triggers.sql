@@ -1,6 +1,6 @@
 --@Autor: Francisco Pablo Rodrigo
---@Fecha creación: dd/mm/yyyy
---@Descripción: Creación de triggers
+--@Fecha creacion: dd/mm/yyyy
+--@Descripcion: Creacion de triggers
 
 whenever sqlerror exit rollback
 

@@ -1,6 +1,6 @@
 -- @Autor: Francisco Pablo Rodrigo
 -- @Fecha creacion: 01/01/2021
--- @Descripcion: Script para la creación de tablas temporales
+-- @Descripcion: Script para la creacion de tablas temporales
 
 Prompt Conectandose a rfpbd_s1 como usuario editorial_bdd
 connect editorial_bdd/editorial_bdd@rfpbd_s1 

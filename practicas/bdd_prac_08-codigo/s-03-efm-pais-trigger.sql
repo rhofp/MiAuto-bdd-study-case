@@ -1,6 +1,6 @@
---@Author:	    Emanuel Flores Martínez
---@Fecha creación:  14/01/2021
---@Descripción:     Trigger instead of para la vista país
+--@Author:	    Emanuel Flores Martinez
+--@Fecha creacion:  14/01/2021
+--@Descripcion:     Trigger instead of para la vista pais
 
 create or replace trigger t_dml_pais
 instead of insert or update or delete on pais

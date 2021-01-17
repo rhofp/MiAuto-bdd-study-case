@@ -1,6 +1,6 @@
 idle> start s-06-validador-main.sql
 =========================================================
-Iniciando validador - Práctica 8
+Iniciando validador - Practica 8
 Presionar Enter si los valores configurados son correctos.
 De lo contario editar el script s-06-validador-main.sql
 O en su defecto proporcionar nuevos valores

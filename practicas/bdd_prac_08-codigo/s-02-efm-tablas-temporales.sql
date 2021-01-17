@@ -1,6 +1,6 @@
---@Author:	    Emanuel Flores Martínez
---@Fecha creación:  14/01/2021
---@Descripción:     Creación de tablas temporales
+--@Author:	    Emanuel Flores Martinez
+--@Fecha creacion:  14/01/2021
+--@Descripcion:     Creacion de tablas temporales
 
 prompt Conectandose a efmbd_s1 como usuario editorial_bdd
 connect editorial_bdd/editorial_bdd@efmbd_s1

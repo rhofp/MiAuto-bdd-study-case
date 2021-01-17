@@ -1,4 +1,4 @@
---@Author:	    Emanuel Flores Martínez
+--@Author:	    Emanuel Flores Martinez
 --@Fecha creacion:  16/01/2021
 --@Descripcion:     Trigger instead of para la vista pago_suscriptor n2
 
