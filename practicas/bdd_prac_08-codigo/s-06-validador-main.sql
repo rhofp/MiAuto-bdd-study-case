@@ -1,6 +1,6 @@
 --@Autor:          Jorge A. Rodriguez C
---@Fecha creación:  dd/mm/yyyy
---@Descripción:  Pruebas Operaciones DML
+--@Fecha creacion:  dd/mm/yyyy
+--@Descripcion:  Pruebas Operaciones DML
 
 whenever sqlerror exit rollback
 set serveroutput on
@@ -8,16 +8,16 @@ set verify off
 
 --Modificar las siguientes 5 variables en caso de ser necesario.
 --En scripts reales no debeń incluirse passwords. Solo se hace para
---propósitos de pruebas y evitar escribirlos cada vez que se quiera ejecutar 
---el proceso de validación de la práctica (propósitos académicos).
+--propositos de pruebas y evitar escribirlos cada vez que se quiera ejecutar 
+--el proceso de validacion de la practica (propositos academicos).
 
 --
--- Nombre del usuario empleado en esta práctica
+-- Nombre del usuario empleado en esta practica
 --
 define p_usuario='editorial_bdd'
 
 --
--- Password del usuario empleado en esta práctica
+-- Password del usuario empleado en esta practica
 --
 define p_usuario_pass='editorial_bdd'
 
@@ -44,7 +44,7 @@ set verify off
 set feedback off
 
 Prompt =========================================================
-Prompt Iniciando validador - Práctica 8
+Prompt Iniciando validador - Practica 8
 Prompt Presionar Enter si los valores configurados son correctos.
 Prompt De lo contario editar el script s-06-validador-main.sql
 Prompt O en su defecto proporcionar nuevos valores

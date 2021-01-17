@@ -245,7 +245,7 @@ begin
 	spv_print_ok('Validando delete completo al final');
 	spv_verifica_delete;
 
-  spv_print_ok('Validación concluida');
+  spv_print_ok('Validacion concluida');
 
 	commit;
 exception

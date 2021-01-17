@@ -1,6 +1,6 @@
 --@Autor:          Jorge A. Rodriguez C
---@Fecha creación:  dd/mm/yyyy
---@Descripción:   Creación de funcion para cargar BLOBs
+--@Fecha creacion:  dd/mm/yyyy
+--@Descripcion:   Creacion de funcion para cargar BLOBs
 create or replace function load_blob_from_file(
   v_directory_name      in varchar2,
   v_src_file_name       in varchar2 ) return blob is

@@ -1,6 +1,6 @@
---@Author:	    Emanuel Flores Martínez
---@Fecha creación:  16/01/2021
---@Descripción:     Trigger instead of para la vista pago_suscriptor n2
+--@Author:	    Emanuel Flores Martinez
+--@Fecha creacion:  16/01/2021
+--@Descripcion:     Trigger instead of para la vista pago_suscriptor n2
 
 create or replace trigger t_dml_pago_suscriptor
 instead of insert or update or delete on pago_suscriptor
@@ -16,7 +16,7 @@ begin
           :new.importe, :new.recibo_pago);
 
       elsif :new.num_pago > 0 and :new.num_pago <= 60 then
-        -- inserción remota, se hce uso de la tabla temporal por BLOB
+        -- insercion remota, se hce uso de la tabla temporal por BLOB
         
         insert into t_pago_suscriptor_insert (num_pago, suscriptor_id,
           fecha_pago, importe, recibo_pago) 
@@ -34,7 +34,7 @@ begin
 
       else
         raise_application_error(-20001, 
-          'Valor de num_pago ' || :new.num_pago || ' no es válido');
+          'Valor de num_pago ' || :new.num_pago || ' no es valido');
       
       end if;
 
@@ -51,7 +51,7 @@ begin
 
       else 
         raise_application_error(-20001, 
-          'El numero de pago debe ser válido');
+          'El numero de pago debe ser valido');
       
       end if;
 

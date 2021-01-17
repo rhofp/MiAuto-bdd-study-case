@@ -1,6 +1,6 @@
---@Author:	    Emanuel Flores Martínez
---@Fecha creación:  16/01/2021
---@Descripción:     Trigger instead of para la vista suscriptor n2
+--@Author:	    Emanuel Flores Martinez
+--@Fecha creacion:  16/01/2021
+--@Descripcion:     Trigger instead of para la vista suscriptor n2
 
 create or replace trigger t_dml_suscriptor
 instead of insert or update or delete on suscriptor
@@ -32,7 +32,7 @@ begin
 
         else
           raise_application_error(-20001, 
-            'Error ' || :new.ap_paterno || ' no es válido');
+            'Error ' || :new.ap_paterno || ' no es valido');
 
         end if;
 
@@ -52,7 +52,7 @@ begin
 			 		raise_application_error(-20001, 
               'Error de integridad para el campo pais_id : '
               ||  :new.pais_id
-              || ' No se encontró el registro padre en fragmentos');   
+              || ' No se encontro el registro padre en fragmentos');   
 			 	end if;
       end if;
 
