@@ -42,13 +42,13 @@ create or replace synonym tarjeta_cliente_f1 for tarjeta_cliente_f1_rfp_s2@rfpbd
 create or replace synonym tarjeta_cliente_f2 for tarjeta_cliente_f2_efm_s1@efmbd_s1;
 
 -- Marca (4)
-create or replace synonym marca_r1 for marca_r_rfp_s1@rfpbd_s1;
-create or replace synonym marca_r2 for marca_r_rfp_s2;
+create or replace synonym marca_r1 for marca_r_rfp_s2;
+create or replace synonym marca_r2 for marca_r_rfp_s1@rfpbd_s1;
 create or replace synonym marca_r3 for marca_r_efm_s1@efmbd_s1;
 create or replace synonym marca_r4 for marca_r_efm_s2@efmbd_s2;
 
 -- Modelo (4)
-create or replace synonym modelo_r1 for modelo_r_rfp_s1@rfpbd_s1;
-create or replace synonym modelo_r2 for modelo_r_rfp_s2;
+create or replace synonym modelo_r1 for modelo_r_rfp_s2;
+create or replace synonym modelo_r2 for modelo_r_rfp_s1@rfpbd_s1;
 create or replace synonym modelo_r3 for modelo_r_efm_s1@efmbd_s1;
 create or replace synonym modelo_r4 for modelo_r_efm_s2@efmbd_s2;
