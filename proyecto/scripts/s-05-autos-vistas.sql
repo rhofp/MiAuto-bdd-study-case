@@ -1,4 +1,4 @@
---@Author:              Rodrigo Francisco Pablo 
+--@Author:              Rodrigo Francisco Pablo, Emanuel Flores Martinez
 --@Fecha de creacion:   19/01/2021
 --@Descripcion:         Creación de vistas
 
@@ -63,3 +63,13 @@ create or replace tarjeta_cliente as
   select cliente_id,num_tarjeta,num_tarjeta,anio_expira,mes_expira,
   codigo_seguridad,tipo 
   from tarjeta_cliente_f2;
+
+-- marca (replica)
+create or replace view marca as
+  select marca_id, clave, descripcion, activo
+  from marca_r1;
+
+-- modelo (replica)
+create or replace view modelo as
+  select modelo_id, clave, descripcion, activo, marca_id
+  from modelo_r1;
