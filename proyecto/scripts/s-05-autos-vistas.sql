@@ -41,28 +41,26 @@ create or replace view historico_status_auto as
   from hist_status_auto_f1
   union all 
   select historico_status_id,fecha_status,status_auto_id,auto_id 
-  from hist_status_auto_f2;;
+  from hist_status_auto_f2;
 
 -- cliente (3)
 create or replace view cliente as
-  select cliente_id,nombre,ap_paterno,ap_materno, num_identificador,email
+  select cliente_id,nombre,ap_paterno,ap_materno, num_identificacion,email
   from cliente_f1
   union all
-  select cliente_id,nombre,ap_paterno,ap_materno, num_identificador,email
+  select cliente_id,nombre,ap_paterno,ap_materno, num_identificacion,email
   from cliente_f2
   union all
-  select cliente_id,nombre,ap_paterno,ap_materno, num_identificador,email
+  select cliente_id,nombre,ap_paterno,ap_materno, num_identificacion,email
   from cliente_f3;
 
 -- tarjeta_cliente (2)
-create or replace tarjeta_cliente as
-  select cliente_id,num_tarjeta,num_tarjeta,anio_expira,mes_expira,
-  codigo_seguridad,tipo 
-  from tarjeta_cliente_f1
-  union all 
-  select cliente_id,num_tarjeta,num_tarjeta,anio_expira,mes_expira,
-  codigo_seguridad,tipo 
-  from tarjeta_cliente_f2;
+create or replace view tarjeta_cliente as
+  select tc1.cliente_id, tc2.num_tarjeta, tc1.anio_expira, tc1.mes_expira,
+    tc2.codigo_seguridad, tc1.tipo 
+  from tarjeta_cliente_f1 tc1 
+  join tarjeta_cliente_f2 tc2
+  on tc1.cliente_id = tc2.cliente_id;
 
 -- marca (replica)
 create or replace view marca as
