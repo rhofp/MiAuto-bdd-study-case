@@ -1,12 +1,11 @@
 --@Author:              Rodrigo Francisco Pablo
 --@Fecha de creacion:   20/01/2021
 --@Descripcion:         Instead of trigger empleado para implementar
---                      replicacion en la tabla pais (insert, delete)
+--                      DML en la tabla pais (insert, delete)
 
 create or replace trigger t_dml_pais
   instead of insert or update or delete on pais
 declare
-  v_count number;
 begin
   case
   when inserting then

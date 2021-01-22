@@ -19,7 +19,7 @@ connect autos_bdd/autos_bdd@rfpbd_s1
 @s-06-autos-rfp-s1-trigger-pago-auto.sql
 --tablas replicadas
 @s-06-autos-trigger-modelo.sql -- el mismo para todos
-@s-06-autos-trigger-mefma.sql -- el mismo para todos
+@s-06-autos-trigger-marca.sql -- el mismo para todos
 
 prompt =====================================
 prompt Creando triggers para rfpbd_s2
@@ -36,7 +36,7 @@ connect autos_bdd/autos_bdd@rfpbd_s2
 @s-06-autos-rfp-s2-trigger-pago-auto.sql
 --tablas replicadas
 @s-06-autos-trigger-modelo.sql -- el mismo para todos
-@s-06-autos-trigger-mefma.sql -- el mismo para todos
+@s-06-autos-trigger-marca.sql -- el mismo para todos
 
 prompt =====================================
 prompt Creando triggers para efmbd_s1
@@ -53,7 +53,7 @@ connect autos_bdd/autos_bdd@efmbd_s1
 @s-06-autos-rfp-s1-trigger-pago-auto.sql --reutilizando script
 --tablas replicadas
 @s-06-autos-trigger-modelo.sql -- el mismo para todos
-@s-06-autos-trigger-mefma.sql -- el mismo para todos
+@s-06-autos-trigger-marca.sql -- el mismo para todos
 
 prompt =====================================
 prompt Creando triggers para efmbd_s2
@@ -70,7 +70,7 @@ connect autos_bdd/autos_bdd@efmbd_s2
 @s-06-autos-rfp-s1-trigger-pago-auto.sql --reutilizando script
 --tablas replicadas
 @s-06-autos-trigger-modelo.sql -- el mismo para todos
-@s-06-autos-trigger-mefma.sql -- el mismo para todos
+@s-06-autos-trigger-marca.sql -- el mismo para todos
 
 prompt Listo!
 disconnect

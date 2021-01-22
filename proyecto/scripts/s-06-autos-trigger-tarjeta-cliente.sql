@@ -4,7 +4,7 @@
 --                      tarjeta_cliente (insert, delete)
 
 create or replace trigger t_dml_tarjeta_cliente
-  instead of insert or update or delete on hist_status_auto
+  instead of insert or update or delete on tarjeta_cliente
 declare
   v_count number;
 begin 
