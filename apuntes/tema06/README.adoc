@@ -1,0 +1,34 @@
+= Tema 6
+Creado por Rodrigo Francisco <rhodfra@gmail.com>
+Version 1.0, 10.11.2020
+:description: Semana 08 del curso de CCNA
+:keywords: cnna, switching, stp, spanning tree protocol  
+:sectnums: 
+// Configuracion de la tabla de contenidos
+:toc: 
+:toc-placement!:
+:toclevels: 4                                          
+:toc-title: Contenido
+
+// Ruta base de las imagenes
+:imagesdir: ./README.assets/ 
+
+// Resaltar sintaxis
+:source-highlighter: pygments
+
+// Iconos para entorno local
+ifndef::env-github[:icons: font]
+
+// Iconos para entorno github
+ifdef::env-github[]
+:caution-caption: :fire:
+:important-caption: :exclamation:
+:note-caption: :paperclip:
+:tip-caption: :bulb:
+:warning-caption: :warning:
+endif::[]
+
+Optimización de Consultas Distribuidas
+
+toc::[]
+

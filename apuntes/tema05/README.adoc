@@ -549,3 +549,111 @@ plan de ejecución para construir la tabla hash
 === Sort Merge join
 
 * Las columnas que nos sirven para el join debe estar ordenadas
+
+
+== Estadísticas de una base de datos centralizada
+
+=== Clasificación de estadísticas
+
+.Estadisticas a nivel de tablas
+* núm registros
+* Long promedio de un registro
+. A nivel de columna
+* Número de valores distintos de una columna (NDV)
+. Estadisticas de índices 
+. Estadisticas del sitema
+* Uso del disco (w/r)
+
+=== Estadísticas a nivel de tabla
+
+Se realiza por medio de procedimientos almancenados precargados.
+
+=== Histogramas 
+Para distribuciones no homogeneas, el histograma ayuda a mejorar la estádisticas
+
+== Optimización de consultas distribuidas
+
+El objeto es reducir la cantidad de datos a tranferir
+
+Se puede configurar al optimizador para la ejecución de una consulta inicie de
+un nodos distinto de donde se lanza. Se hace uso de **hints**
+
+.Tipos de hints
+* driving_site
+* no_merge
+* index
+
+
+== OPTIMIZACION DE CONSULTAS DISTRIBUIDAS
+
+
+=== Collocated inline views
+
+Collocated -> Agrupar las tablas (fragmentos) que pertenezcan al mismo modo.
+Inline views -> Una subconsulta en la clausula from 
+
+Agrupa o reescribe la consulta para que las operaciones relacionadas con una
+misma tabla se hagan del lado del servidor remoto
+
+[source,sql]
+----
+-- Sin el uso de collocated inline views
+select c1, ...,cn 
+from f1 
+join f2 on ...
+join f3 on ...
+join f4 on ...
+...
+join fn on ...
+
+-- En terminos de inline views
+-- 1. Agrupar a los fragmentos con base al sitio en el que se encuentran
+--      Suponer:
+--        f1,f2 => S1
+--        f3,f4 => S2
+--        f5 => S3
+-- La sentencia en terminos de collocated inline views será:
+
+select c1,...,cn
+from (
+  select c1,...cn
+  from f1@s1
+  join f2@s1 on ...
+  where ...
+) v1
+join (
+  select c1,...cn
+  from f3@s2
+  join f4@s2 on ...
+  where ...
+) v2 v1.id = v2.id 
+join (
+  select c1,...,cn 
+  from f5@s3
+) v3 on v2.id = v3.id 
+where ...
+;
+----
+
+Por default el optimizador tratará de quitar las inline views. Hay ocasiones en
+las cuales el manejador intenta realizar el proceso de collocated inline views,
+pero muy pocas veces ya que nuestra sentencia (centralizada) contiene funciones
+de agregacion, subconsultas y código SQl complejo.
+
+Por lo anterior tenemos que utilizar **hints**
+
+=== Ejemplo
+
+Mostrar el identificador del auto, marca, modelo, peso máximo, volumen y precio
+de los Autos de carga ubicados en arcbd_s2. La consulta se lanza desde jrcbd_s1.
+
+
+[source,sql]
+----
+-- Sin collocated inline views
+select a1.auto_id, a2.marca, a2.modelo, ac1.peso_max,
+ac1.volumen, a2.precio
+from  a1
+on a2@arcbd_s2 on a1.auto_id = a2.auto_id 
+join ac1@arcbd_s2 on a2.auto_id = ac1.auto_id
+----
