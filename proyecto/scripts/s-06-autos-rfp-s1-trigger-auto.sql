@@ -36,8 +36,8 @@ begin
       else 
         -- No cumple con el criterio de frag derivada
         raise_application_error(-20020, 
-          'Error de integridad para el campo auto_id: '
-          ||  :new.auto_id
+          'Error de integridad para el campo sucursal_id: '
+          ||  :new.sucursal_id
           || ' No se encontro el registro padre en fragmentos');
       end if;
     end if;
