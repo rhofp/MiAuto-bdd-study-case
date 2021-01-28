@@ -9,18 +9,18 @@ declare
 begin
   case
   when inserting then
-    if upper(:new.clave) = 'AME' then 
+    if upper(:new.region) = 'AME' then 
       -- Se inserta en pais_f1
       insert into pais_f1( pais_id, nombre, clave, region) 
       values ( :new.pais_id, :new.nombre, :new.clave, :new.region);
-    elsif upper(:new.clave) = 'EUR' then 
+    elsif upper(:new.region) = 'EUR' then 
       -- Se inserta en pais_f2
       insert into pais_f2( pais_id, nombre, clave, region) 
       values ( :new.pais_id, :new.nombre, :new.clave, :new.region);
     else 
       -- No se cumple con las reglas del esquema de fragmentacion
       raise_application_error(-20010,
-      'La clave ingresada es invalida: ' || :new.clave
+      'La region ingresada es invalida: ' || :new.region
       || 'Solo se permiten las claves AME y EUR');
     end if;
 
@@ -29,15 +29,15 @@ begin
       'La instruccion update no se encuentra implementada');
 
   when deleting then 
-    if upper(:new.clave) = 'AME' then 
+    if upper(:new.region) = 'AME' then 
       -- Se elimina en pais_f1
       delete from pais_f1 where pais_id = :old.pais_id;
-    elsif upper(:new.clave) = 'EUR' then 
+    elsif upper(:new.region) = 'EUR' then 
       -- Se elimina en pais_f2
       delete from pais_f2 where pais_id = :old.pais_id;
     else 
       raise_application_error(-20010,
-      'Incosistencia, valor incorrecto para la clave'
+      'Incosistencia, valor incorrecto para la region'
       || 'Solo se permiten las claves AME y EUR');
     end if;
 
