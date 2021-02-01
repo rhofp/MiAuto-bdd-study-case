@@ -36,8 +36,8 @@ from dual;
 
 Prompt validando sinonimos para historico status auto
 select
-  (select count(*) from hist_status_auto_f1) as hist_status_auto_f1,
-  (select count(*) from hist_status_auto_f2) as hist_status_auto_f2
+  (select count(*) from historico_status_auto_f1) as historico_status_auto_f1,
+  (select count(*) from historico_status_auto_f2) as historico_status_auto_f2
 from dual;
 
 Prompt validando sinonimos para cliente

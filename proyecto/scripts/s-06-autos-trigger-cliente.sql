@@ -42,15 +42,15 @@ begin
 
   when deleting then 
     --Completar
-    if upper(substr(:new.ap_paterno,1,1)) between 'A' and 'I'  then 
+    if upper(substr(:old.ap_paterno,1,1)) between 'A' and 'I'  then 
       -- Insertan en cliente_f1
       delete from cliente_f1 where cliente_id = :old.cliente_id;
 
-    elsif upper(substr(:new.ap_paterno,1,1)) between 'J' and 'Q'  then 
+    elsif upper(substr(:old.ap_paterno,1,1)) between 'J' and 'Q'  then 
       -- Insertan en cliente_f2
       delete from cliente_f2 where cliente_id = :old.cliente_id;
 
-    elsif upper(substr(:new.ap_paterno,1,1)) between 'R' and 'Z'  then 
+    elsif upper(substr(:old.ap_paterno,1,1)) between 'R' and 'Z'  then 
       -- Insertan en cliente_f3
       delete from cliente_f3 where cliente_id = :old.cliente_id;
     end if;

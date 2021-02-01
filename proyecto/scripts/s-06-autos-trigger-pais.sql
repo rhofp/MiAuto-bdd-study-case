@@ -29,10 +29,10 @@ begin
       'La instruccion update no se encuentra implementada');
 
   when deleting then 
-    if upper(:new.region) = 'AME' then 
+    if upper(:old.region) = 'AME' then 
       -- Se elimina en pais_f1
       delete from pais_f1 where pais_id = :old.pais_id;
-    elsif upper(:new.region) = 'EUR' then 
+    elsif upper(:old.region) = 'EUR' then 
       -- Se elimina en pais_f2
       delete from pais_f2 where pais_id = :old.pais_id;
     else 

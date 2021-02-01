@@ -53,10 +53,10 @@ CREATE TABLE STATUS_AUTO(
 
 
 -- 
--- TABLE: HIST_STATUS_AUTO_F2_EFM_S2 
+-- TABLE: historico_status_auto_F2_EFM_S2 
 --
 
-CREATE TABLE HIST_STATUS_AUTO_F2_EFM_S2(
+CREATE TABLE historico_status_auto_F2_EFM_S2(
     HISTORICO_STATUS_ID    NUMBER(10, 0)    NOT NULL,
     FECHA_STATUS           DATE             NOT NULL,
     AUTO_ID                NUMBER(10, 0)    NOT NULL,

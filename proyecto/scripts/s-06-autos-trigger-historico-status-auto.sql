@@ -16,13 +16,13 @@ begin
 
     if v_count > 0 then
       if to_char(:new.fecha_status, 'yyyy') > '2010' then
-        insert into hist_status_auto_f1 (historico_status_id, fecha_status,
+        insert into historico_status_auto_f1 (historico_status_id, fecha_status,
           auto_id, status_auto_id)
         values (:new.historico_status_id, :new.fecha_status, 
           :new.auto_id, :new.status_auto_id);
       
       elsif to_char(:new.fecha_status, 'yyyy') <= '2010' then
-        insert into hist_status_auto_f2 (historico_status_id, fecha_status,
+        insert into historico_status_auto_f2 (historico_status_id, fecha_status,
           auto_id, status_auto_id)
         values (:new.historico_status_id, :new.fecha_status, 
           :new.auto_id, :new.status_auto_id);
@@ -41,11 +41,11 @@ begin
   
   when deleting then
     if to_char(:old.fecha_status, 'yyyy') > '2010' then
-      delete from hist_status_auto_f1
+      delete from historico_status_auto_f1
       where historico_status_id = :old.historico_status_id;
     
-    elsif to_char(:new.fecha_status, 'yyyy') <= '2010' then
-      delete from hist_status_auto_f2
+    elsif to_char(:old.fecha_status, 'yyyy') <= '2010' then
+      delete from historico_status_auto_f2
       where historico_status_id = :old.historico_status_id;
 
     else

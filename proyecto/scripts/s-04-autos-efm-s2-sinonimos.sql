@@ -25,8 +25,8 @@ create or replace synonym auto_carga_f1 for auto_carga_f1_rfp_s1@rfpbd_s1;
 create or replace synonym auto_carga_f2 for auto_carga_f2_rfp_s2@rfpbd_s2;
 
 -- Historico Status Auto (2)
-create or replace synonym hist_status_auto_f1 for hist_status_auto_f1_efm_s1@efmbd_s1;
-create or replace synonym hist_status_auto_f2 for hist_status_auto_f2_efm_s2;
+create or replace synonym historico_status_auto_f1 for historico_status_auto_f1_efm_s1@efmbd_s1;
+create or replace synonym historico_status_auto_f2 for historico_status_auto_f2_efm_s2;
 
 -- Cliente (3)
 create or replace synonym cliente_f1 for cliente_f1_rfp_s2@rfpbd_s2;

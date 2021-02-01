@@ -54,7 +54,7 @@ begin
 
     if v_count > 0 then 
       -- Se realiza eliminacion local
-      delete from auto_f1 where sucursal_id = :old.sucursal_id;
+      delete from auto_f1 where auto_id = :old.auto_id;
     else 
       select count(*) into v_count 
       from sucursal_f2
@@ -62,7 +62,7 @@ begin
 
       if v_count > 0 then 
         -- Se inserta en auto_f2 (remoto)
-        delete from auto_f2 where sucursal_id = :old.sucursal_id;
+        delete from auto_f2 where auto_id = :old.auto_id;
       else 
         -- No cumple con el criterio de frag derivada
         raise_application_error(-20020, 
@@ -72,7 +72,7 @@ begin
       end if;
     end if;
     -- Siempre se hace la eliminacion en auto_f3
-    delete from sucursal_f3 where sucursal_id = :old.sucursal_id;
+    delete from auto_f3 where auto_id = :old.auto_id;
 
   when updating then 
     raise_application_error(-20030, 
@@ -81,3 +81,4 @@ begin
   end case;
 end;
 /
+show errors
