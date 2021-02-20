@@ -11,7 +11,7 @@ Version 1.0, 19.02.2021
 //:toc-title: Contenido
 
 // Ruta base de las imagenes
-:imagesdir: ./README.assets/ 
+// :imagesdir: ./README.assets/ 
 
 // Resaltar sintaxis
 :source-highlighter: pygments
